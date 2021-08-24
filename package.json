@@ -1,0 +1,26 @@
+{
+  "name": "nordstrom-website-clone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neerajmasai/nordstrom-website-clone.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/neerajmasai/nordstrom-website-clone/issues"
+  },
+  "homepage": "https://github.com/neerajmasai/nordstrom-website-clone#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.11.15",
+    "nodemon": "^2.0.12"
+  }
+}
