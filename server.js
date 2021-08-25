@@ -20,4 +20,7 @@ mongoose.connection.on("connected", (err, res) => {
 });
 
 //routes
-
+const productController = require("./src/controllers/product.controller.js");
+const userController = require("./src/controllers/user.controller.js");
+app.use("/products", productController);
+app.use("users", userController);
