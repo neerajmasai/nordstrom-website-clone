@@ -580,6 +580,6 @@ loadNavCount();
 
 /* testing */
 
-fetch("http://localhost:2345/products/query/1")
+fetch("http://localhost:2345/products/query/")
 .then(response => response.json())
 .then(data => console.log(data));
