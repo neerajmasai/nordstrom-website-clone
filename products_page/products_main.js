@@ -41,74 +41,6 @@ function redirectToHome() {
     window.location.href = "../landing_page/landingPage.html";
 }
 
-
-
-const products = [
-  {
-    id:0,
-    name:"Gala Two Strap Slide Sandal",
-    brand:"SAM EDELMAN",
-    price:3304,
-    disc:"30%",
-    offValue:4720,
-    desc1:"Price varies with currency exchange rates and may be different than in store.",
-    desc2:"Minimal detailing elevates the wear-with-everything versatility of a double-band slide sandal crafted with a flat sole and a cushioned footbed.", 
-    ratings: 4,
-    zoomImg:"images/product_1/zoom_img.jpeg",
-    img1:"images/product_1/small_img_1.jpeg",
-    img2:"images/product_1/small_img_2.jpeg",
-    img3:"images/product_1/small_img_3.jpeg",
-    img4:"images/product_1/small_img_4.jpeg"
-  },
-  {
-    id:1,
-    name:"Off the Shoulder Dress",
-    brand:"CHARLES HENRY",
-    price:4157,
-    disc:"40%",
-    offValue:6929,
-    desc1:"Price varies with currency exchange rates and may be different than in store.",
-    desc2:"This vivid dress has a trendy off-the-shoulder neckline styled with a flirty ruffle that enhances the crisp, fluttery silhouette.", 
-    ratings: 5,
-    zoomImg:"images/product_2/zoom_img.jpeg",
-    img1:"images/product_2/small_img_1.jpeg",
-    img2:"images/product_2/small_img_2.jpeg",
-    img3:"images/product_2/small_img_3.jpeg",
-    img4:"images/product_2/small_img_4.jpeg"
-  },
-  {
-    id:2,
-    name:"Granada Slide Sandal",
-    brand:"SAM EDELMAN",
-    price:3304,
-    disc:"10%",
-    offValue:4720,
-    desc1:"Price varies with currency exchange rates and may be different than in store.",
-    desc2:"Your style is secured by the big, bold buckle of this slide that you can shuffle on in your choice of dynamic colors, textures and finishes.", 
-    ratings: 4,
-    zoomImg:"images/product_3/zoom_img.jpeg",
-    img1:"images/product_3/small_img_1.jpeg",
-    img2:"images/product_3/small_img_2.jpeg",
-    img3:"images/product_3/small_img_3.jpeg",
-    img4:"images/product_3/small_img_4.jpeg"
-  },
-  {
-    id:3,
-    name:"Garson Slide Sandal",
-    brand:"SAM EDELMAN",
-    price:4406,
-    disc:"25%",
-    offValue:6295,
-    desc1:"Price varies with currency exchange rates and may be different than in store.",
-    desc2:"A cushioned footbed comfortably grounds you in this chic slide sandal topped with knotted leather straps.", 
-    ratings: 5,
-    zoomImg:"images/product_4/zoom_img.jpeg",
-    img1:"images/product_4/small_img_1.jpeg",
-    img2:"images/product_4/small_img_2.jpeg",
-    img3:"images/product_4/small_img_3.jpeg",
-    img4:"images/product_4/small_img_4.jpeg",
-  },
-]
 /* end */
 /* toggle dropdown show effect */
 
@@ -143,21 +75,21 @@ function loadSelectedProduct(){
   //read value from local storage
   const productId = JSON.parse(localStorage.getItem('selectedProduct'));
 
-  //find product with id
-  let product;
-  for(var i=0; i<products.length; i++){
-    if(products[i].id == productId){
-      //found
-      product = products[i];
-      break;
-    }
-  }
-
-  //update values on page
-  loadProductData(product);
+  //get product data from backend server
+  fetchProductData(productId);
 
 }
+function fetchProductData(productId){
+  /* returns product data with specified domestic id from database*/
 
+  fetch(`http://localhost:2345/products/query/${productId}`)
+  .then(response => response.json())
+  .then((productData) => {
+    console.log(productData);
+    loadProductData(productData[0]);
+  });
+
+}
 function loadProductData(product){
   /* loads product data on page by updating values through DOM */
   
@@ -251,41 +183,41 @@ function addToCart(){
   }
   else{
     //find product with id
-    let product;
-    for(var i=0; i<products.length; i++){
-      if(products[i].id == productId){
-        //found
-        product = products[i];
-        break;
+    fetch(`http://localhost:2345/products/query/${productId}`)
+    .then(response => response.json())
+    .then((productData) => {
+      
+      //get product data from backend server
+      const product = productData[0];
+
+      const cartItem = {
+        prodObj: product,
+        qty: 1,
+        subTotal: product.price
       }
-    }  
+  
+      //get cart
+      let cart = JSON.parse(localStorage.getItem("cart"));
+  
+      if(cart == null){
+        //create empty cart
+        cart = [];
+      }
+  
+      //append current product to cart
+      cart.push(cartItem);
+      localStorage.setItem("cart",JSON.stringify(cart));
+  
+      //update cart meta data
+      updateCartMetaData(cartItem);
+  
+      //update navbar cart
+      loadNavCount();
+  
+      //display success
+      showSuccess(cartItem, 0);
+    });
 
-    const cartItem = {
-      prodObj: product,
-      qty: 1,
-      subTotal: product.price
-    }
-
-    //get cart
-    let cart = JSON.parse(localStorage.getItem("cart"));
-
-    if(cart == null){
-      //create empty cart
-      cart = [];
-    }
-
-    //append current product to cart
-    cart.push(cartItem);
-    localStorage.setItem("cart",JSON.stringify(cart));
-
-    //update cart meta data
-    updateCartMetaData(cartItem);
-
-    //update navbar cart
-    loadNavCount();
-
-    //display success
-    showSuccess(cartItem, 0);
   }
 
 
@@ -577,9 +509,3 @@ loadSelectedProduct();
 
 //load navCount
 loadNavCount();
-
-/* testing */
-
-fetch("http://localhost:2345/products/query/")
-.then(response => response.json())
-.then(data => console.log(data));

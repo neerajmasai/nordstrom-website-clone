@@ -34,8 +34,6 @@ function signIn(){
 }
 let metaCart = JSON.parse(localStorage.getItem("metaCart"));
 
-//product images path
-const PATH = "../products_page/";
 
 function loadShoppingCart(){
     /* loads shopping cart items from local storage */
@@ -81,7 +79,7 @@ function appendCartItem(cartItem){
     image.style.height = "180px";
     image.style.textAlign = "center";
     image.style.marginLeft = "10%";
-    image.setAttribute("src", PATH+cartItem.prodObj.zoomImg);
+    image.setAttribute("src", cartItem.prodObj.zoomImg);
 
     imgDiv.append(image);
 
