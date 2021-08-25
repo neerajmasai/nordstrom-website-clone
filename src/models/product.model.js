@@ -1,6 +1,6 @@
 //PRODUCT MODEL
 
-import mongoose from 'mongoose';
+const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 //product schema
