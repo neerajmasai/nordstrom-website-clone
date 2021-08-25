@@ -7,6 +7,8 @@ const app = express();
 app.listen(PORT, () => console.log(`Nordstrom Web App connected successfully to Express. Listening on port ${PORT}...`));
 
 //middlewares
+const cors = require("cors");
+app.use(cors())
 app.use(express.json());
 
 //connect to mongoose

@@ -41,6 +41,8 @@ function redirectToHome() {
     window.location.href = "../landing_page/landingPage.html";
 }
 
+
+
 const products = [
   {
     id:0,
@@ -575,3 +577,9 @@ loadSelectedProduct();
 
 //load navCount
 loadNavCount();
+
+/* testing */
+
+fetch("http://localhost:2345/products/query/1")
+.then(response => response.json())
+.then(data => console.log(data));
