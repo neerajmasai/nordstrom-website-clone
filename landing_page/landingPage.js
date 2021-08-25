@@ -86,7 +86,7 @@ function slideShow2() {
     slideContainer2.setAttribute("id", "slides2");
 
     let arr = [
-        "https://n.nordstrommedia.com/id/560a4d67-0866-4982-8f29-d8e6924374d6.jpeg?h=600&w=1608",
+        "https://n.nordstrommedia.com/id/2127fce3-8923-40ae-afb0-f792b13dfce8.jpeg?h=600&w=1608",
         "https://n.nordstrommedia.com/id/597390bd-9e50-4bff-be66-fc4329cbe39b.jpeg?h=600&w=1608",
         "https://n.nordstrommedia.com/id/0cad90fd-2a34-401f-a841-35b8d874af94.jpeg?h=600&w=1608",
         "https://n.nordstrommedia.com/id/b1147cfa-ea31-4ca7-ba97-0eddbf5e7192.jpeg?h=600&w=1608",

@@ -174,10 +174,10 @@ body {
     display: flex;
 }
 .body1 > img:first-child {
-    width: 60%;
+    width: 50%;
 }
 .body1 > img:last-child {
-    width: 40%;
+    width: 50%;
 }
 #carosol1 {
     height: 180px;
