@@ -1,68 +1,89 @@
-localStorage.setItem("isLoggedIn", JSON.stringify(false))
+// localStorage.setItem("isLoggedIn", JSON.stringify(false))
+
+// CHECKING WHETHER USER ALREADY EXIST OR NOT
 function writeToStorage() {
-    var email = document.getElementById("input1").value
-    var arr = JSON.parse(localStorage.getItem("allEmails"));
-    var flag = false;
-    console.log("first");
-    if(arr == null) {
-        arr = [];
-        localStorage.setItem("currentEmail", JSON.stringify(email));
-        goToSignUp();
-        return;
-    }
-    for (var i = 0; i < arr.length; i++) {
-        if (arr[i].curEmail == email) {
-            flag = true;
-            console.log("second")
-        }
-    }
-      localStorage.setItem("currentEmail", JSON.stringify(email));
-     if (flag == true) {
-        
-         console.log("third")
-         goToLogin();
-    }
-     else {
-         goToSignUp()
-     }
+    fetch('http://localhost:2345/users/')
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success', data);
+            var email = document.getElementById("input1").value;
+            console.log(email);
+            localStorage.setItem("currentEmail", JSON.stringify(email));
+            let flag = false;
+            for (var i = 0; i < data.length; i++) {
+                if (data[i].email == email) {
+                    console.log("email found");
+                    flag = true;
+                    goToLogin();
+                }
+            }
+            if(!flag){
+              goToSignUp();
+            }
+        })
 }
-/* end universal */
 
-
-
-/* index page */
+// REDIRECTING TO CREATE ACCOUNT PAGE IF USER IS NEW
 function goToSignUp(){
     window.location.href = "login1.html";
 }
+
+// REDIRECTING TO SIGN IN PAGE FOR EXISTING USER
 function goToLogin(){
     window.location.href = "login3.html";
 }
-/* end index page */
-
+function goToCreationSuccess(){
+    window.location.href = "login2.html";
+}
+// CREATING USER
 function loggedIn() {
     var fName = document.getElementById("fName").value
     var lName = document.getElementById("lName").value
     var pwd = document.getElementById("pwd").value
     var curEmail = JSON.parse(localStorage.getItem("currentEmail"))
-    var allEmail = JSON.parse(localStorage.getItem("allEmails"))
-    var payload = {
-        fName,lName,pwd,curEmail
-    }
-    if (allEmail == null) {
-        var allEmail = [payload]
-    }
-    else {
-        allEmail.push(payload)
-    }
-    localStorage.setItem("allEmails", JSON.stringify(allEmail))
-    localStorage.setItem("isLoggedIn", JSON.stringify(true))
-    window.location.href = "login2.html";
+    const data = { email: curEmail, firstName: fName, lastName: lName, password: pwd};
+    fetch('http://localhost:2345/users/', {
+        method: 'POST', // or 'PUT'
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+        localStorage.setItem("isLoggedIn", JSON.stringify(true))
+        localStorage.setItem("currentEmail", JSON.stringify(data.email));
+        goToCreationSuccess();
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
 }
 
 function home() {
-    localStorage.setItem("isLoggedIn", JSON.stringify(true))
-    window.location.href = "../landing_page/landingPage.html";
+
+    var curEmail = JSON.parse(localStorage.getItem("currentEmail"));
+    var pwd = document.getElementById("inp").value;
+
+    validateUser(curEmail, pwd);
     
+}
+
+function validateUser(email, pwd){
+    /* validate user and redirect */
+    fetch(`http://localhost:2345/users/query/${email}`)
+    .then(response => response.json())
+    .then(data => {
+        if(data[0].password == pwd){
+            //correct password
+            localStorage.setItem("isLoggedIn", JSON.stringify(true))
+            window.location.href = "../landing_page/landingPage.html";
+        }
+        else{
+            alert("Please enter valid password!");
+        }
+    });
 }
 window.onload = function logged() {
     var isLoggedIn = JSON.parse(localStorage.getItem("isLoggedIn"));
@@ -70,21 +91,22 @@ window.onload = function logged() {
         //show name and logout option
         var sign = document.getElementById("signInOption");
         var currentEmail = JSON.parse(localStorage.getItem("currentEmail"));
-        var allEmails = JSON.parse(localStorage.getItem("allEmails"));
-        var details = allEmails.filter(function (el) {
-            return el.curEmail == currentEmail;
-        })[0];
-        sign.innerHTML = details.fName;
-        var logoutDiv = document.getElementById("signIn")
-        var logout = document.createElement("option");
-        logout.value = "Sign Out";
-        logout.innerHTML = "Sign Out";
-        logout.addEventListener("click", () => {
-            isLoggedIn = false;
-            localStorage.setItem("isLoggedIn", JSON.stringify(isLoggedIn));
-            window.location.reload();
-        });
-        logoutDiv.append(logout);
+        fetch(`http://localhost:2345/users/query/${currentEmail}`)
+            .then(response => response.json())
+            .then((details) => {
+                console.log('details:', details);
+                sign.innerHTML = `Hi, ${details[0].firstName}`;
+                var logoutDiv = document.getElementById("signIn")
+                var logout = document.createElement("option");
+                logout.value = "Sign Out";
+                logout.innerHTML = "Sign Out";
+                logout.addEventListener("click", () => {
+                    isLoggedIn = false;
+                    localStorage.setItem("isLoggedIn", JSON.stringify(isLoggedIn));
+                    window.location.reload();
+                });
+                logoutDiv.append(logout);
+            })
     }
     else{
         //show Sign In
@@ -93,6 +115,7 @@ window.onload = function logged() {
         sign.value = "Sign In";
     }
 }
+
 function signIn(){
     /* redirect to sign in page */
     window.location.href = "../login page/login.html";
@@ -104,5 +127,5 @@ let homeRedirect = document.getElementById("homeRedirect");
 homeRedirect.addEventListener("click", redirectToHome);
 
 function redirectToHome() {
-    window.location.href = "..landing_page/landingPage.html";
+    window.location.href = "../landing_page/landingPage.html";
 }
