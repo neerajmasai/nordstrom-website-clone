@@ -1,6 +1,7 @@
 //PRODUCT CONTROLLER
 
 //create a router
+const { request } = require("express");
 const express = require("express");
 const router = express.Router();
 
@@ -45,6 +46,17 @@ router.get("/:id", async function (req, res) {
     }
 })
 
+// get products by domestic Id
+
+router.get("/query/:id", async function (req, res) {
+    try {
+        const getById = await Product.find({id: req.params.id}).lean().exec();
+        return res.status(200).send(getById);
+    }
+    catch (err) {
+        return res.status(400).send(err.message);
+    }
+})
 
 // Update the products in the database
 

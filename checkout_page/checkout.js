@@ -1,8 +1,7 @@
 /* dynamic nav cart count */
 let metaCart = JSON.parse(localStorage.getItem("metaCart"));
 let cart = JSON.parse(localStorage.getItem("cart"));
-//product images path
-const PATH = "../products_page/";
+
 isLoggedIn = JSON.parse(localStorage.getItem("isLoggedIn"));
 
 function authenticateUser(){
@@ -45,7 +44,7 @@ function loadNavCount(){
       img.style.width = "80px";
       img.style.height = "80px";
       img.style.margin = "5px";
-      img.setAttribute("src", PATH + cart[i].prodObj.zoomImg);
+      img.setAttribute("src", cart[i].prodObj.zoomImg);
       imgDiv.append(img);
     }
 
