@@ -1,4 +1,4 @@
-localStorage.setItem("isLoggedIn", JSON.stringify(false))
+// localStorage.setItem("isLoggedIn", JSON.stringify(false))
 
 // CHECKING WHETHER USER ALREADY EXIST OR NOT
 function writeToStorage() {
@@ -32,7 +32,9 @@ function goToSignUp(){
 function goToLogin(){
     window.location.href = "login3.html";
 }
-
+function goToCreationSuccess(){
+    window.location.href = "login2.html";
+}
 // CREATING USER
 function loggedIn() {
     var fName = document.getElementById("fName").value
@@ -51,7 +53,8 @@ function loggedIn() {
     .then(data => {
         console.log('Success:', data);
         localStorage.setItem("isLoggedIn", JSON.stringify(true))
-        window.location.href = "login2.html";
+        localStorage.setItem("currentEmail", JSON.stringify(data.email));
+        goToCreationSuccess();
     })
     .catch((error) => {
         console.error('Error:', error);
@@ -84,7 +87,6 @@ function validateUser(email, pwd){
 }
 window.onload = function logged() {
     var isLoggedIn = JSON.parse(localStorage.getItem("isLoggedIn"));
-    
     if(isLoggedIn){
         //show name and logout option
         var sign = document.getElementById("signInOption");
@@ -93,7 +95,7 @@ window.onload = function logged() {
             .then(response => response.json())
             .then((details) => {
                 console.log('details:', details);
-                sign.innerHTML = `Hi, ${details[0].fName}`;
+                sign.innerHTML = `Hi, ${details[0].firstName}`;
                 var logoutDiv = document.getElementById("signIn")
                 var logout = document.createElement("option");
                 logout.value = "Sign Out";
@@ -125,5 +127,5 @@ let homeRedirect = document.getElementById("homeRedirect");
 homeRedirect.addEventListener("click", redirectToHome);
 
 function redirectToHome() {
-    window.location.href = "..landing_page/landingPage.html";
+    window.location.href = "../landing_page/landingPage.html";
 }
