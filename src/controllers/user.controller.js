@@ -30,6 +30,17 @@ router.get("/:id", async (request, response) => {
     }
 });
 
+router.get("/query/:email", async (request, response) => {
+    try {
+        const results = await User.find({ email: request.params.email }).lean().exec();
+        console.log(results);
+        return response.send(results);
+    }
+    catch (err) {
+        response.status(401).send(err.message);
+    }
+});
+
 router.post("/", async (request, response) => {
     try {
         const results = await User.create(request.body);
