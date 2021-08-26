@@ -7,17 +7,18 @@ function writeToStorage() {
         .then(data => {
             console.log('Success', data);
             var email = document.getElementById("input1").value;
+            console.log(email);
             localStorage.setItem("currentEmail", JSON.stringify(email));
-            console.log(data);
+            let flag = false;
             for (var i = 0; i < data.length; i++) {
                 if (data[i].email == email) {
                     console.log("email found");
+                    flag = true;
                     goToLogin();
                 }
-                else {
-                    console.log("not found")
-                    goToSignUp();
-                }
+            }
+            if(!flag){
+              goToSignUp();
             }
         })
 }
@@ -58,12 +59,32 @@ function loggedIn() {
 }
 
 function home() {
-    localStorage.setItem("isLoggedIn", JSON.stringify(true))
-    window.location.href = "../landing_page/landingPage.html";
+
+    var curEmail = JSON.parse(localStorage.getItem("currentEmail"));
+    var pwd = document.getElementById("inp").value;
+
+    validateUser(curEmail, pwd);
     
+}
+
+function validateUser(email, pwd){
+    /* validate user and redirect */
+    fetch(`http://localhost:2345/users/query/${email}`)
+    .then(response => response.json())
+    .then(data => {
+        if(data[0].password == pwd){
+            //correct password
+            localStorage.setItem("isLoggedIn", JSON.stringify(true))
+            window.location.href = "../landing_page/landingPage.html";
+        }
+        else{
+            alert("Please enter valid password!");
+        }
+    });
 }
 window.onload = function logged() {
     var isLoggedIn = JSON.parse(localStorage.getItem("isLoggedIn"));
+    
     if(isLoggedIn){
         //show name and logout option
         var sign = document.getElementById("signInOption");
@@ -71,7 +92,7 @@ window.onload = function logged() {
         fetch(`http://localhost:2345/users/query/${currentEmail}`)
             .then(response => response.json())
             .then((details) => {
-                console.log(details);
+                console.log('details:', details);
                 sign.innerHTML = `Hi, ${details[0].fName}`;
                 var logoutDiv = document.getElementById("signIn")
                 var logout = document.createElement("option");
@@ -92,6 +113,7 @@ window.onload = function logged() {
         sign.value = "Sign In";
     }
 }
+
 function signIn(){
     /* redirect to sign in page */
     window.location.href = "../login page/login.html";

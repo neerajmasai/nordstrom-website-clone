@@ -4,27 +4,30 @@ india.addEventListener("click", shipDetails);
 shipCross.addEventListener("click", shipDivClose);
 let homeShipDiv = document.querySelector(".homeShipDiv");
 // 
+
 window.onload = function logged() {
     var isLoggedIn = JSON.parse(localStorage.getItem("isLoggedIn"));
+    
     if(isLoggedIn){
         //show name and logout option
         var sign = document.getElementById("signInOption");
         var currentEmail = JSON.parse(localStorage.getItem("currentEmail"));
-        var allEmails = JSON.parse(localStorage.getItem("allEmails"));
-        var details = allEmails.filter(function (el) {
-            return el.curEmail == currentEmail;
-        })[0];
-        sign.innerHTML = details.fName;
-        var logoutDiv = document.getElementById("signIn")
-        var logout = document.createElement("option");
-        logout.value = "Sign Out";
-        logout.innerHTML = "Sign Out";
-        logout.addEventListener("click", () => {
-            isLoggedIn = false;
-            localStorage.setItem("isLoggedIn", JSON.stringify(isLoggedIn));
-            window.location.reload();
-        });
-        logoutDiv.append(logout);
+        fetch(`http://localhost:2345/users/query/${currentEmail}`)
+            .then(response => response.json())
+            .then((details) => {
+                console.log('details:', details);
+                sign.innerHTML = `Hi, ${details[0].firstName}`;
+                var logoutDiv = document.getElementById("signIn")
+                var logout = document.createElement("option");
+                logout.value = "Sign Out";
+                logout.innerHTML = "Sign Out";
+                logout.addEventListener("click", () => {
+                    isLoggedIn = false;
+                    localStorage.setItem("isLoggedIn", JSON.stringify(isLoggedIn));
+                    window.location.reload();
+                });
+                logoutDiv.append(logout);
+            })
     }
     else{
         //show Sign In
@@ -442,8 +445,9 @@ function loadNavCount(){
     if(cart == null){
       navCart.innerHTML = 0;
     }
-    
-    navCart.innerHTML = cart.count;
+    else{
+        navCart.innerHTML = cart.count;
+    }
   
   }
   function shoppingCart(){
