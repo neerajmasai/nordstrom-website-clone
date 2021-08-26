@@ -87,11 +87,11 @@ function slideShow2() {
 
     let arr = [
         "https://n.nordstrommedia.com/id/2127fce3-8923-40ae-afb0-f792b13dfce8.jpeg?h=600&w=1608",
-        "https://n.nordstrommedia.com/id/597390bd-9e50-4bff-be66-fc4329cbe39b.jpeg?h=600&w=1608",
-        "https://n.nordstrommedia.com/id/0cad90fd-2a34-401f-a841-35b8d874af94.jpeg?h=600&w=1608",
-        "https://n.nordstrommedia.com/id/b1147cfa-ea31-4ca7-ba97-0eddbf5e7192.jpeg?h=600&w=1608",
-        "https://n.nordstrommedia.com/id/5a37cf9c-99ac-4a5d-ae8d-851995cea70c.jpeg?h=600&w=1608",
-        "https://n.nordstrommedia.com/id/b334b085-dfa9-4e8c-808d-6e118a7b1a5c.jpeg?h=600&w=1608"
+        "https://n.nordstrommedia.com/id/86765119-fa40-4962-b532-c3367a388339.jpeg?h=600&w=1608",
+        "https://n.nordstrommedia.com/id/e3e067ed-f56c-41e4-9381-978a2688a648.jpeg?h=600&w=1332",
+        "https://n.nordstrommedia.com/id/0a56a9d8-efba-4fea-a808-0fe28a15f124.jpeg?h=600&w=1332",
+        "https://n.nordstrommedia.com/id/0dbc4a07-61be-4801-b2c4-d7fb068f30f2.jpeg?h=600&w=1608",
+        "https://n.nordstrommedia.com/id/aa2b1579-becf-478a-81a9-dda1b019988d.jpeg?h=598&w=1606"
     ]
     let carosolImg2 = document.createElement("img");
     carosolImg2.setAttribute("class", "carosolImg2");
@@ -364,55 +364,116 @@ redirectMenPage11.addEventListener("click", function () {
 
 // loading the slider products dynamically from database
 
-let sliderView = document.getElementById("sliderView");
+fetch("http://localhost:2345/products/")
+.then(response => response.json())
+.then((products) => {
+    console.log(products);
+    /* products fetched from database */
 
-loadProducts = async () => {
-    // const settings = {
-    //     method: 'GET',
-        // headers: {
-        //     Accept: 'application/json',
-        //     'content-type': 'application/json',
-        // }
-    // };
-    try {
-        const fetchData = await fetch('http://localhost:2345/products/');
-        const data = await fetchData.json();
-        console.log("data:", data);
-        appendProducts(data, sliderView);
+    /* partition products */
+
+    //first five
+    let arrFirstFive = [];
+    for(var i=0; i<5; i++){
+        arrFirstFive.push(products[i]);
     }
-    catch (err) {
-        console.log(err);
-        return err;
+
+    //next 5
+    let arrNextFive = [];
+    for(var j=0; j<5; j++, i++){
+        arrNextFive.push(products[i]);
+    }   
+
+    // second Carosol first Five products
+
+    let car2FirstFiveArr = [];
+    for (var k = 0; k < 5; k++, i++) {
+        car2FirstFiveArr.push(products[i]);
     }
-}
 
-loadProducts();
+    // second carosol next five products
 
-function appendProducts(products, sliderView) {
-    products.forEach((el) => {
-        let sliderSubDiv = document.createElement("div");
-        sliderSubDiv.setAttribute("class", "sliderSubDiv");
+    let car2NextFiveArr = [];
+    for (var l = 0; l < 5; l++, i++) {
+        car2NextFiveArr.push(products[i]);
+    }
 
-        let prodImg = document.createElement("img");
-        prodImg.setAttribute("class", "prodImg");
-        prodImg.src = el.zoomImg;
-        console.log(el.zoomImg);
-        let prodName = document.createElement("p");
-        prodName.innerText = el.name;
-        let prodBrand = document.createElement("p");
-        prodBrand.innerText = el.brand;
-        let prodPrice = document.createElement("p");
-        prodPrice.innerText = el.price;
-        let prodRatings = document.createElement("p");
-        prodRatings.innerText = el.ratings;
-        let prodColors = document.createElement("img");
-        prodColors.src = el.colorsImg;
-        console.log(el.colorsImg);
+    console.log(car2FirstFiveArr);
+    console.log(car2NextFiveArr);
 
-        
-        sliderSubDiv.append(prodImg, prodColors, prodRatings, prodName, prodBrand, prodPrice);
-        sliderView.append(sliderSubDiv);
-    })
+    //get parent rows to update dynamically
+    const firstFiveRow = document.getElementById("firstFiveRow");
+    const nextFiveRow = document.getElementById("nextFiveRow");
+    const car2FristFive = document.getElementById("car2FristFive");
+    const car2NextFive = document.getElementById("car2NextFive");
+
+    //load first five
+    loadProducts(arrFirstFive, firstFiveRow);
+
+    //load next five
+    loadProducts(arrNextFive, nextFiveRow);
+
+    loadProducts(car2FirstFiveArr, car2FristFive);
+    loadProducts(car2NextFiveArr, car2NextFive)
+});
+
+function loadProducts(products, parentRow){
+    /* loads first five initial products */
+
+    //append products dynamically
+    products.forEach( (product) => {
+
+        //create product parent div
+        const div = document.createElement("div");
+        div.setAttribute("class", "col m-2");
+
+        //create product image
+        const img = document.createElement("img");
+        img.setAttribute("src", product.zoomImg);
+        img.setAttribute("class", "prodImg");
+
+        // create color image
+        const colorImg = document.createElement("img");
+        colorImg.src = product.colorsImg;
+        // colorImg.setAtrribute("class", "rabia");
+
+        //create product name
+        const name = document.createElement("h5");
+        name.setAttribute("class", "prodName");
+        name.innerHTML = product.name;
+
+        //create product price
+        const price = document.createElement("p");
+        price.setAttribute("class", "prodPrice");
+        price.innerHTML = `Price: ${product.price}`;
+
+        //create brand 
+        const brand = document.createElement("p");
+        brand.innerHTML = product.brand;
+
+        // create ratings
+
+        const ratingsMainDiv = document.createElement("div");
+        ratingsMainDiv.setAttribute("class", "ratingsMainDiv");
+
+        const ratingsDiv = document.createElement("div");
+        ratingsDiv.innerHTML = "";
+        for(var i=0; i<product.ratings; i++){
+            const starIcon = document.createElement("span");
+            starIcon.setAttribute("class", "material-icons");
+            starIcon.innerHTML = "star";
+            ratingsDiv.append(starIcon);
+        }
+        const reviews = document.createElement("span");
+        reviews.innerHTML = `(${Math.ceil(Math.random()*199)})`;
+        ratingsDiv.append(reviews);
+
+        //append children to parent
+        div.append(img, colorImg, brand, price, ratingsMainDiv);
+        ratingsMainDiv.append(ratingsDiv, reviews);
+        parentRow.append(div);
+
+    });
 }
 
 

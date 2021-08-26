@@ -63,7 +63,7 @@ router.get("/query/:id", async function (req, res) {
 router.patch("/:id", async function (req, res) {
     try {
         const update = await Product.findByIdAndUpdate(req.params.id, req.body, { new: true });
-        return res.status(203).send(update);
+        return res.status(200).send(update);
     }
     catch (err) {
         return res.status(400).send(err.message);
