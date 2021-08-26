@@ -235,11 +235,16 @@ body {
 .greatDealImgs > div:hover {
     cursor: pointer;
 }
-.greatDealImgs > div > img {
+.sliderSubDiv {
     height: 100%;
-    width: 20%;
+    width: 80%;
+    border: 1px solid black;
 }
 
+.prodImg {
+    width: 100%;
+    height: 360px;
+}
 .slider .slick-next::before,
 .slider .slick-prev::before {
   /* font-family: "slice"; */

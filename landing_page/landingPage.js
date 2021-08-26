@@ -362,6 +362,60 @@ redirectMenPage11.addEventListener("click", function () {
     window.location.href = "../shop_by_category/shop_Category.html";
 })
 
+// loading the slider products dynamically from database
+
+let sliderView = document.getElementById("sliderView");
+
+loadProducts = async () => {
+    // const settings = {
+    //     method: 'GET',
+        // headers: {
+        //     Accept: 'application/json',
+        //     'content-type': 'application/json',
+        // }
+    // };
+    try {
+        const fetchData = await fetch('http://localhost:2345/products/');
+        const data = await fetchData.json();
+        console.log("data:", data);
+        appendProducts(data, sliderView);
+    }
+    catch (err) {
+        console.log(err);
+        return err;
+    }
+}
+
+loadProducts();
+
+function appendProducts(products, sliderView) {
+    products.forEach((el) => {
+        let sliderSubDiv = document.createElement("div");
+        sliderSubDiv.setAttribute("class", "sliderSubDiv");
+
+        let prodImg = document.createElement("img");
+        prodImg.setAttribute("class", "prodImg");
+        prodImg.src = el.zoomImg;
+        console.log(el.zoomImg);
+        let prodName = document.createElement("p");
+        prodName.innerText = el.name;
+        let prodBrand = document.createElement("p");
+        prodBrand.innerText = el.brand;
+        let prodPrice = document.createElement("p");
+        prodPrice.innerText = el.price;
+        let prodRatings = document.createElement("p");
+        prodRatings.innerText = el.ratings;
+        let prodColors = document.createElement("img");
+        prodColors.src = el.colorsImg;
+        console.log(el.colorsImg);
+
+        
+        sliderSubDiv.append(prodImg, prodColors, prodRatings, prodName, prodBrand, prodPrice);
+        sliderView.append(sliderSubDiv);
+    })
+}
+
+
 //product dynamic functionality - neeraj
 function productPage(id){
     /* stores id in local storage and updates selected value and redirects to product page*/
