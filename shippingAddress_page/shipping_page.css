@@ -167,6 +167,8 @@ body {
 }
 .purchaseDiv {
     margin-top: 10px;
+}
+.shippingAddress {
     background-color: rgb(115,115,115);
 }
 .purchasePageRight {

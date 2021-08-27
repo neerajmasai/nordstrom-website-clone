@@ -1,4 +1,3 @@
-
 let homeRedirect = document.getElementById("homeRedirect");
 homeRedirect.addEventListener("click", redirectToHome);
 

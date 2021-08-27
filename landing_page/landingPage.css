@@ -79,6 +79,9 @@ body {
     padding-right: 0px;
     margin-top: 22px;
 }
+.logo:hover {
+    cursor: pointer;
+}
 .navList {
     width: 50%;
     height: 80px;
