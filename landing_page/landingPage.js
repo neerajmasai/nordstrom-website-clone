@@ -428,7 +428,11 @@ function loadProducts(products, parentRow){
 
         //create product parent div
         const div = document.createElement("div");
-        div.setAttribute("class", "col m-2");
+        //redirect on click
+        div.addEventListener("click", () => {
+            productPage(product.id);
+        });
+        div.setAttribute("class", "col m-2 product-corousel-divs");
 
         //create product image
         const img = document.createElement("img");
@@ -444,6 +448,7 @@ function loadProducts(products, parentRow){
         const name = document.createElement("h5");
         name.setAttribute("class", "prodName");
         name.innerHTML = product.name;
+
 
         //create product price
         const price = document.createElement("p");
