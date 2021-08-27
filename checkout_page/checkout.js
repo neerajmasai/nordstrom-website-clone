@@ -57,14 +57,103 @@ function loadNavCount(){
   
   }
   function success(){
-    /* redirect to thank you page */
-    window.location.href = "../success_page/success.html";
+    /* save details to database and redirect to success */
+
+    //get user id from database
+    const currentEmail = JSON.parse(localStorage.getItem("currentEmail"));
+    console.log(currentEmail);
+    fetch(`http://localhost:2345/users/query/${currentEmail}`)
+    .then(response => response.json())
+    .then((data) => {
+      const userId = data[0]["_id"];
+
+      //update user object with shipping details
+      saveShippingDetails(userId);
+
+      //update user object with payment method
+      savePaymentMethod(userId);    
+      
+    });
+
   }
 
   function shoppingCart(){
     /* redirect to shopping cart */
+    
     window.location.href = "../shopping_cart/shopping_cart.html";
   }  
+
+  function saveShippingDetails(userId){
+    /* save shipping details of user */
+
+    //save shipping details
+    const address = document.getElementById("address1").value;
+    const addressOpt = document.getElementById("address1").value;
+    const city = document.getElementById("city").value;
+    const country = document.getElementById("country").value;
+    const pin = document.getElementById("pin").value;
+
+    //shipping details data
+    const data = {
+      address: address,
+      addressOpt: addressOpt,
+      city: city,
+      country: country,
+      pin: pin
+    }
+
+    //save to database
+    fetch(`http://localhost:2345/users/updateShippingDetails/${userId}`, {
+      method: 'PATCH',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+      })
+      .catch((error) => {
+          console.error('Error:', error);
+      });      
+  }
+
+  function savePaymentMethod(userId){
+    /* save payment method of user */
+
+    const nameOnCard = document.getElementById("nameOnCard").value;
+    const cardNumber = document.getElementById("cardNumber").value;
+    const expMonth = document.getElementById("expMonth").value;
+    const expYear = document.getElementById("expYear").value;
+    const cvv = document.getElementById("cvv").value;
+
+    //payment method data
+    const data = {
+      nameOnCard: nameOnCard,
+      cardNumber: cardNumber,
+      expMonth: expMonth,
+      expYear: expYear,
+      cvv: cvv
+    }
+
+    //save to database
+    fetch(`http://localhost:2345/users/updatePaymentMethod/${userId}`, {
+      method: 'PATCH',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        window.location.href = "../success_page/success.html";
+      })
+      .catch((error) => {
+          console.error('Error:', error);
+      });      
+  }
   authenticateUser();
   loadCheckoutCart();
   //load navCount
