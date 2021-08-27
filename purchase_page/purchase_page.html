@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchases Page</title>
+    <link rel="shortcut icon" type="image/jpg" href="images/fav.png" />
+    <link rel="stylesheet" href="purchase_page.css">
+</head>
+<body>
+    <div id="headerDiv">
+        <div class="header1">
+            <p><span class="saleSpan">Pick up today. </span>Curbside Pickup - it's safe, easy and free.
+                <button class="previewButton">Learn More</button>
+            </p>
+            <div class="india">
+                <img src="https://n.nordstrommedia.com/alias/IN.gif" />
+                <p>India</p>
+            </div>
+        </div>
+        <div class="header2">
+            <div class="logoDiv">
+                <p class="logo" id="homeRedirect">NORDSTROM</p>
+            </div>
+            <div class="navList">
+                <ul class="listStyle">
+                    <li id="annSale">Shop All</li>
+                    <li id="women">Women</li>
+                    <li id="men">Men</li>
+                    <li id="kids">Kids</li>
+                    <li id="activeWear">Activewear</li>
+                    <li id="home">Home</li>
+                    <li id="gifts">Gifts</li>
+                    <li id="beauty">Beauty</li>
+                    <li id="designer">Designer</li>
+                    <li id="sale">Sale</li>
+                    <li id="brands">Brands</li>
+                </ul>
+            </div>
+            <div class="navRight">
+                <div class="search">
+                    <img src="images/outline_search_black_24dp.png" />
+                    <p>Search</p>
+                </div>
+                <select name="sign in" id="signIn">
+                    <option id="signInOption" onclick="signIn()">Sign In</option>
+                </select>
+                <div class="navShopIcon" onclick="shoppingCart()">
+                    <img src="images/shopping-bag.png">
+                    <p id="navCartCount">0</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="purchasePageBody">
+        <div class="purchasePageLeft purchaseCommon">
+            <div class="accountHolder" ></div>
+            <div class="menuItems"></div>
+            <div class="menuItems"></div>
+            <div class="menuItems"></div>
+            <div class="menuItems"></div>
+            <div class="menuItems"></div>
+        </div>
+        <div class="purchasePageRight purchaseCommon"></div>
+    </div>
+</body>
+</html>
