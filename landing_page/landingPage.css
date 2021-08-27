@@ -2,6 +2,9 @@ body {
     font-family: 'Voltaire', sans-serif;
     /* background-color: gray; */
 }
+.product-corousel-divs:hover{
+    cursor: pointer;
+}
 #headerDiv {
     width: 100%;
     height: 130px;
