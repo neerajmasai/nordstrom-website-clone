@@ -1,4 +1,3 @@
-
 let homeRedirect = document.getElementById("homeRedirect");
 homeRedirect.addEventListener("click", redirectToHome);
 
@@ -16,7 +15,7 @@ personalDiv.addEventListener("click", function () {
     window.location.href = "../personalInfo_page/personalInfo_page.html";
 })
 
-let paymentDiv = document.getElementById("paymentDiv");
-paymentDiv.addEventListener("click", function () {
-    window.location.href = "../paymentsMethod_page/payments_page.html";
+let purchaseDiv = document.getElementById("purchaseDiv");
+purchaseDiv.addEventListener("click", function () {
+    window.location.href = "../purchase_page/purchase_page.html";
 })
