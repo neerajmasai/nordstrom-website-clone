@@ -21,7 +21,9 @@ function processOrder(){
         const div2 = document.getElementById("processingContainer");
         div2.remove();
         div.style.visibility = "visible";
-        emptyCart();
+
+        //save cart items to database
+        storeCart();
     });
 }
 function emptyCart(){
@@ -29,10 +31,49 @@ function emptyCart(){
 
     localStorage.removeItem("metaCart");
     localStorage.removeItem("cart");
-
-    //reload page
-    setTimeout(() => {
-        window.location.href = "../landing_page/landingPage.html";  
-    }, 3000)  
 }
+
+function storeCart(){
+    /* stores cart info and user info as transaction */
+
+    //get user id from database
+    const currentEmail = JSON.parse(localStorage.getItem("currentEmail"));
+    console.log(currentEmail);
+    fetch(`http://localhost:2345/users/query/${currentEmail}`)
+    .then(response => response.json())
+    .then((data) => {
+        const userId = data[0]["_id"];
+        
+        const transaction = {
+            user: userId,
+            cart: cart,
+            meta: metaCart,
+            success: true
+        }
+
+        //save to database
+        fetch(`http://localhost:2345/transactions/`, {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(transaction),
+        })
+        .then(response => response.json())
+        .then(data => {
+            //empty cart after transaction success
+            emptyCart();
+            console.log(data);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });      
+
+      
+    })    
+    .catch((error) => {
+        console.error('Error:', error);
+    });     
+}
+
 processOrder();
