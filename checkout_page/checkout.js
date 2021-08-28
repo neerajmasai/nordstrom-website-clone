@@ -4,6 +4,37 @@ let cart = JSON.parse(localStorage.getItem("cart"));
 
 isLoggedIn = JSON.parse(localStorage.getItem("isLoggedIn"));
 
+window.onload = function logged() {
+  var isLoggedIn = JSON.parse(localStorage.getItem("isLoggedIn"));
+  if(isLoggedIn){
+      //show name and logout option
+      var sign = document.getElementById("signInOption");
+      var currentEmail = JSON.parse(localStorage.getItem("currentEmail"));
+      fetch(`http://localhost:2345/users/query/${currentEmail}`)
+          .then(response => response.json())
+          .then((details) => {
+              console.log('details:', details);
+              sign.innerHTML = `Hi, ${details[0].firstName}`;
+              var logoutDiv = document.getElementById("signIn")
+              var logout = document.createElement("option");
+              logout.value = "Sign Out";
+              logout.innerHTML = "Sign Out";
+              logout.addEventListener("click", () => {
+                  isLoggedIn = false;
+                  localStorage.setItem("isLoggedIn", JSON.stringify(isLoggedIn));
+                  window.location.reload();
+              });
+              logoutDiv.append(logout);
+          })
+  }
+  else{
+      //show Sign In
+      var sign = document.getElementById("signInOption");
+      sign.innerHTML = "Sign In";
+      sign.value = "Sign In";
+  }
+}
+
 function authenticateUser(){
   /* checks wether user is logged in or not */
   if(!isLoggedIn){
