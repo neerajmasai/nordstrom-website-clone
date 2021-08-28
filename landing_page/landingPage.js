@@ -373,6 +373,11 @@ redirectMenPage11.addEventListener("click", function () {
     window.location.href = "../shop_by_category/shop_Category.html";
 })
 
+let navWomen = document.getElementById("navWomen");
+navWomen.addEventListener("click", function () {
+    window.location.href = "../shop_by_women/shop_by_women.html";
+})
+
 // loading the slider products dynamically from database
 
 fetch("http://localhost:2345/products/")

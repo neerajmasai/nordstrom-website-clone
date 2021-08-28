@@ -106,12 +106,12 @@ function loadWomenProducts(products, parentDiv) {
         let womenImg = document.createElement("img");
         womenImg.setAttribute("src", product.zoomImg);
         womenImg.setAttribute("class", "womenImgSize");
-        womenImg.addEventListener("mouseover", function () {
-            womenImg.src = product.img2;
-        })
-        womenImg.addEventListener("mouseleave", function () {
-            womenImg.src = product.zoomImg;
-        })
+        // womenImg.addEventListener("mouseover", function () {
+        //     womenImg.src = product.img2;
+        // })
+        // womenImg.addEventListener("mouseleave", function () {
+        //     womenImg.src = product.zoomImg;
+        // })
 
         // create color image
         const colorImg = document.createElement("img");

@@ -1,5 +1,3 @@
-
-
 let homeRedirect = document.getElementById("homeRedirect");
 homeRedirect.addEventListener("click", redirectToHome);
 
@@ -85,20 +83,24 @@ function appendPurchaseOrders(orders){
             cartDiv.setAttribute("class", "cart-div");
 
             //name
-            const name = document.createElement("h5");
+            const name = document.createElement("p");
+            name.setAttribute("class", "name");
             name.innerHTML = product.prodObj.name;
 
             //img
             const img = document.createElement("img");
             img.setAttribute("src", product.prodObj.img1);
+            img.setAttribute("class", "imgHeight")
 
             //price
-            const subTotal = document.createElement("h5");
-            subTotal.innerHTML = product.subTotal;
+            const subTotal = document.createElement("p");
+            subTotal.setAttribute("class", "name");
+            subTotal.innerHTML = `INR. ${product.subTotal}`;
 
             //qty
-            const qty = document.createElement("h5");
-            qty.innerHTML = product.qty;            
+            const qty = document.createElement("p");
+            qty.setAttribute("class", "name");
+            qty.innerHTML = `Qty: ${product.qty}`;            
 
             cartDiv.append(img, name, qty, subTotal);
 

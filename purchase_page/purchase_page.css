@@ -1,5 +1,6 @@
 body {
     font-family: 'Voltaire', sans-serif;
+    /* background-color: rgb(244,244,244); */
     /* background-color: gray; */
 }
 #headerDiv {
@@ -205,6 +206,10 @@ body {
     display: flex;
     flex-direction: column;
 }
+.name {
+    margin-top: 50px;
+    font-weight: bold;
+}
 .helpfulInfo {
     height: 250px;
     width: 50%;
@@ -282,12 +287,24 @@ body {
     border-radius: 5px;
     width: 80%;
     padding: 20px;
+    /* background-color: green; */
 }
 
 .cart-div{
+    border: 1px solid rgb(240, 239, 239);
+    width: 820px;
+    height: 120px;
     margin-top: 40px;
+    border-radius: 3px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    /* padding-bottom: 10px; */
 }
-
+.cart-div:hover {
+    box-shadow: 0px 0px 8px rgb(221, 219, 219);
+}
+.imgHeight {
+    height: 100px;
+    margin-top: 10px;
+}
 /* end */
