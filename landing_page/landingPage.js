@@ -121,6 +121,14 @@ function shopByMen() {
     window.location.href = "../shop_by_category/shop_Category.html";
 }
 
+// Redirection to shop by women page
+
+let shopWomen = document.querySelector("#shopWomen");
+shopWomen.addEventListener("click", shopByWomen);
+
+function shopByWomen() {
+    window.location.href = "../shop_by_women/shop_by_women.html";
+}
 
 let annSale = document.querySelector("#annSale");
 annSale.addEventListener("click", dropDown);
