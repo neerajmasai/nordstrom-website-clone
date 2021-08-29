@@ -1,0 +1,475 @@
+body {
+    font-family: 'Voltaire', sans-serif;
+    /* background-color: gray; */
+}
+#headerDiv {
+    width: 100%;
+    height: 130px;
+    /* border: 1px solid black; */
+    padding-top: 0px;
+}
+.header1 {
+    height: 50px;
+    background-color: black;
+    text-align: center;
+    margin-top: 0px;
+    padding-top: 0px;
+    display: flex;
+    justify-content: space-between;
+}
+.header1 > p {
+    color: white;
+    margin-top: 0px;
+    padding-top: 15px;
+    font-size: 14px;
+    margin-left: 350px;
+}
+.saleSpan {
+    font-weight: bold;
+}
+.previewButton {
+    border: none;
+    background-color: black;
+    color: white;
+    font-size: 14px;
+    text-decoration: underline;
+}
+.india {
+    float: right;
+    display: flex;
+    color: white;
+    margin-right: 30px;
+}
+.india:hover {
+    cursor: pointer;
+}
+.india > img {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    margin-top: 15px;
+    margin-right: 8px;
+    /* padding-right: 10px; */
+}
+.india > p {
+    font-size: 14px;
+    padding-top: 4px;
+}
+.header2 {
+    height: 80px;
+    /* border: 1px solid green; */
+    display: flex;
+}
+.logoDiv {
+    height: 80px;
+    width: 200px;
+    /* background-color: gray; */
+}
+.logo {
+    width: 250px;
+    height: 80px;
+    background-color: none;
+    border: none;
+    font-size: 28px;
+    font-weight: bold;
+    margin-left: 30px;
+    padding-right: 0px;
+    margin-top: 22px;
+}
+.logo:hover {
+    cursor: pointer;
+}
+.navList {
+    width: 50%;
+    height: 80px;
+    /* background-color: peachpuff; */
+    margin-left: 90px;
+}
+.listStyle {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    margin-top: 30px;
+    padding-left: 0px;
+    font-size: 14px;
+}
+#women:hover, #men:hover, #kids:hover, #activeWear:hover, #gifts:hover, #home:hover, #beauty:hover,
+#brands:hover, #sale:hover, #designer:hover {
+    font-weight: bold;
+}
+.listStyle > li:nth-child(10) {
+    color: red;
+}
+.navRight {
+    width: 25%;
+    height: 80px;
+    /* background-color: peachpuff; */
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 30px;
+}
+.search {
+    display: flex;;
+}
+.search > img {
+    width: 30px;
+    height: 30px;
+    margin-top: 25px;
+    color: gray;
+}
+.search > p {
+    margin-top: 30px;
+    font-size: 14px;
+    margin-left: 10px;
+}
+#signIn {
+    height: 20px;
+    width: 80px;
+    border: none;
+    margin-top: 30px;
+    font-size: 14px;
+}
+.navRight > .navShopIcon img{
+    width: 30px;
+    height: 35px;
+    margin-top: 18px;
+}
+/* dynamic nav cart css - neeraj */
+.navShopIcon{
+    display: flex;
+    position: relative;
+    justify-content: center;
+}
+.navShopIcon:hover{
+    cursor: pointer;
+}
+.navShopIcon > p{
+    position: absolute;
+    top: 20px;
+    font-size: small;
+}
+.purchasePageBody {
+    width: 100%;
+    height: 700px;
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(244,244,244);
+}
+.purchaseCommon {
+    height: 90%;
+    margin-top: 2.5%;
+}
+.purchasePageLeft {
+    height: 90%;
+    width: 18%;
+    margin-left: 3%;
+    /* border: 1px solid black; */
+}
+.purchaseDiv {
+    margin-top: 10px;
+}
+.paymentsDiv {
+    background-color: rgb(115,115,115);
+}
+.purchasePageRight {
+    width: 75%;
+    margin-right: 3.5%;
+    background-color: white;
+    /* border: 1px solid red; */
+}
+.accountHolder {
+    height: 140px;
+    width: 100%;
+    text-align: center;
+    /* border: 1px solid blue; */
+}
+.menuItems {
+    height: 70px;
+    width: 100%;
+    display: flex;
+    /* border: 1px solid green; */
+}
+.menuItems:hover {
+    background-color: rgba(115,115,115, 0.6);
+    cursor: pointer;
+}
+.menuItems > img {
+    height: 35px;
+    padding-top: 20px;
+    margin-left: 20px;
+    color: gray;
+}
+.menuItems > p {
+    font-size: 17px;
+    padding-top: 10px;
+    padding-left: 5px;
+}
+.signOut:hover {
+    cursor: pointer;
+}
+.partByNeeraj {
+    width: 95%;
+    margin-left: 2.5%;
+    /* background-color: peachpuff; */
+}
+.helpfulInfo {
+    height: 250px;
+    width: 50%;
+    margin-left: 30px;
+    /* border: 1px solid rgb(211, 32, 62); */
+}
+.helpfulInfo > p:first-child {
+    font-weight: bold;
+}
+.purchasePageRight > p{
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 30px;
+}
+.buttonText {
+    font-size: 15px;
+    border: none;
+    background-color: white;
+    text-decoration: underline;
+}
+.lastInfo {
+    margin-top: 50px;
+}
+.accountHolder > div{
+    height: 80px;
+    width: 80px;
+    margin-left: 80px;
+    border-radius: 50%;
+    background-color: rgb(57,57,57); 
+}
+
+#accountInitial {
+    font-family: 'Tangerine', cursive;
+    margin-right: 10px;
+    font-style: italic;
+    color: rgb(224, 223, 223);
+}
+
+/* payment method */
+
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  margin: 0 -16px;
+}
+
+.col-25 {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+}
+
+.col-50 {
+ display: flex;
+ justify-content: space-evenly;
+ margin-left: 15px;
+}
+.col-75 {
+  -ms-flex: 75%; /* IE10 */
+  flex: 75%;
+}
+
+#col-50 {
+  padding: 0 16px;
+  /* border: 2px solid forestgreen; */
+  width: 80%;
+  height: 500px;
+  margin-left: 8%;
+  margin-top: 50px;
+  border: 1px solid rgb(246,246,246);
+  background-color: white;
+  border-radius: 5px;
+}
+
+#col-50 > h3 {
+    margin-top: 30px;
+}
+.col-50 > input {
+    width: 180px !important;
+    margin-left: 12px;
+}
+.col-50 > label {
+    margin-top: 8px;
+}
+/* .expMon {
+  padding-left: 0px;
+} */
+.container {
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+
+input[type=text] {
+  width: 30%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.icon-container {
+  margin-bottom: 20px;
+  padding: 7px 0;
+  font-size: 24px;
+}
+
+.btn {
+  background-color: black;
+  color: white;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  width: 20%;
+  height: 50px;
+  margin-left: 40%;
+  /* border-radius: 3px; */
+  cursor: pointer;
+  font-size: 17px;
+}
+
+/* .btn:hover {
+  background-color: darkgray;
+} */
+
+a {
+  color: #2196F3;
+}
+
+hr {
+  border: 1px solid lightgrey;
+}
+
+span.price {
+  float: right;
+  color: grey;
+}
+
+.accountHolder > p {
+    line-height: 0.3cm;
+}
+.accountName {
+    font-size: 18px;
+}
+.footerDiv {
+    height: 300px;
+    width: 100%;
+    /* border: 1px solid black; */
+    margin-top: 50px;
+    background-color: rgb(246,246,246);
+}
+.footerTextDiv {
+    height: 250px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    /* border: 1px solid red; */
+}
+.footerTextDiv > div {
+    height: 250px;
+    width: 15.5%;
+    /* border: 1px solid blue; */
+}
+.footerTextDiv p {
+    font-size: 13px;
+}
+.termsOfService {
+    width: 60%;
+    height:50px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 3.5%;
+    /* border: 1px solid black; */
+}
+.termsOfService > p {
+    font-size: 13px;
+}
+
+/* save payment button */
+.saveAddress {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    width: 25%;
+    height: 40px;
+    margin-left: 3.5%;
+    /* border-radius: 3px; */
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* end */
+
+/* account */
+
+#account-initials{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: silver;
+    font-size: x-large;
+}
+/* end */
+
+/* yes no model */
+
+.yesNoModal{
+    width: 400px;
+    height: 180px;
+    position: fixed;
+    z-index: 3;
+    background-color: white;
+    box-shadow: 1px 3px 3px 1000px rgba(0, 0, 0, 0.541);
+    top: 5%;
+    left: 35%;
+    display: flex;
+    flex-direction: column;
+    visibility: hidden;
+    padding: 30px;
+}
+.yesNoModal button{
+    background-color: black;
+    color: white;
+    width: 40%;
+    height: 35px;
+    border: none;
+
+}
+.modalBtns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20%;
+    margin-top: 20px;
+}
+.topBar{
+    width: 100%;
+    height: 10px;
+    display: flex;
+    justify-content: end;
+}
+#closeIcon{
+    font-size: 30px;
+    color: silver;
+}
+#closeIcon:hover{
+    cursor: pointer;
+}
+.modalBtns button:hover{
+    opacity: 80%;
+    cursor: pointer;
+}

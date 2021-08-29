@@ -4,33 +4,52 @@ india.addEventListener("click", shipDetails);
 shipCross.addEventListener("click", shipDivClose);
 let homeShipDiv = document.querySelector(".homeShipDiv");
 // 
+
 window.onload = function logged() {
     var isLoggedIn = JSON.parse(localStorage.getItem("isLoggedIn"));
+    
     if(isLoggedIn){
         //show name and logout option
         var sign = document.getElementById("signInOption");
         var currentEmail = JSON.parse(localStorage.getItem("currentEmail"));
-        var allEmails = JSON.parse(localStorage.getItem("allEmails"));
-        var details = allEmails.filter(function (el) {
-            return el.curEmail == currentEmail;
-        })[0];
-        sign.innerHTML = details.fName;
-        var logoutDiv = document.getElementById("signIn")
-        var logout = document.createElement("option");
-        logout.value = "Sign Out";
-        logout.innerHTML = "Sign Out";
-        logout.addEventListener("click", () => {
-            isLoggedIn = false;
-            localStorage.setItem("isLoggedIn", JSON.stringify(isLoggedIn));
-            window.location.reload();
-        });
-        logoutDiv.append(logout);
+        fetch(`http://localhost:2345/users/query/${currentEmail}`)
+            .then(response => response.json())
+            .then((details) => {
+                console.log('details:', details);
+                sign.innerHTML = `Hi, ${details[0].firstName}`;
+                var logoutDiv = document.getElementById("signIn")
+                var logout = document.createElement("option");
+                logout.value = "Sign Out";
+                logout.innerHTML = "Sign Out";
+                logout.addEventListener("click", () => {
+                    isLoggedIn = false;
+                    localStorage.setItem("isLoggedIn", JSON.stringify(isLoggedIn));
+                    window.location.reload();
+                });
+                logoutDiv.append(logout);
+                var mail = document.getElementById("curmail");
+                mail.innerHTML = currentEmail;
+                var username = document.getElementById("username");
+                username.innerHTML = details[0].firstName + " " + details[0].lastName;
+            })
     }
     else{
         //show Sign In
         var sign = document.getElementById("signInOption");
         sign.innerHTML = "Sign In";
         sign.value = "Sign In";
+    }
+}
+function myaccount() {
+    /* go to my account page */
+
+    var isLoggedIn = JSON.parse(localStorage.getItem("isLoggedIn"));
+
+    if (isLoggedIn) {
+        window.location.href = "../personalInfo_page/personalInfo_page.html";
+    }
+    else{
+         window.location.href = "../login page/login.html";
     }
 }
 function signIn(){
@@ -86,12 +105,12 @@ function slideShow2() {
     slideContainer2.setAttribute("id", "slides2");
 
     let arr = [
-        "https://n.nordstrommedia.com/id/560a4d67-0866-4982-8f29-d8e6924374d6.jpeg?h=600&w=1608",
-        "https://n.nordstrommedia.com/id/597390bd-9e50-4bff-be66-fc4329cbe39b.jpeg?h=600&w=1608",
-        "https://n.nordstrommedia.com/id/0cad90fd-2a34-401f-a841-35b8d874af94.jpeg?h=600&w=1608",
-        "https://n.nordstrommedia.com/id/b1147cfa-ea31-4ca7-ba97-0eddbf5e7192.jpeg?h=600&w=1608",
-        "https://n.nordstrommedia.com/id/5a37cf9c-99ac-4a5d-ae8d-851995cea70c.jpeg?h=600&w=1608",
-        "https://n.nordstrommedia.com/id/b334b085-dfa9-4e8c-808d-6e118a7b1a5c.jpeg?h=600&w=1608"
+        "https://n.nordstrommedia.com/id/2127fce3-8923-40ae-afb0-f792b13dfce8.jpeg?h=600&w=1608",
+        "https://n.nordstrommedia.com/id/86765119-fa40-4962-b532-c3367a388339.jpeg?h=600&w=1608",
+        "https://n.nordstrommedia.com/id/e3e067ed-f56c-41e4-9381-978a2688a648.jpeg?h=600&w=1332",
+        "https://n.nordstrommedia.com/id/0a56a9d8-efba-4fea-a808-0fe28a15f124.jpeg?h=600&w=1332",
+        "https://n.nordstrommedia.com/id/0dbc4a07-61be-4801-b2c4-d7fb068f30f2.jpeg?h=600&w=1608",
+        "https://n.nordstrommedia.com/id/aa2b1579-becf-478a-81a9-dda1b019988d.jpeg?h=598&w=1606"
     ]
     let carosolImg2 = document.createElement("img");
     carosolImg2.setAttribute("class", "carosolImg2");
@@ -118,6 +137,14 @@ function shopByMen() {
     window.location.href = "../shop_by_category/shop_Category.html";
 }
 
+// Redirection to shop by women page
+
+let shopWomen = document.querySelector("#shopWomen");
+shopWomen.addEventListener("click", shopByWomen);
+
+function shopByWomen() {
+    window.location.href = "../shop_by_women/shop_by_women.html";
+}
 
 let annSale = document.querySelector("#annSale");
 annSale.addEventListener("click", dropDown);
@@ -362,6 +389,131 @@ redirectMenPage11.addEventListener("click", function () {
     window.location.href = "../shop_by_category/shop_Category.html";
 })
 
+let navWomen = document.getElementById("navWomen");
+navWomen.addEventListener("click", function () {
+    window.location.href = "../shop_by_women/shop_by_women.html";
+})
+
+// loading the slider products dynamically from database
+
+fetch("http://localhost:2345/products/")
+.then(response => response.json())
+.then((products) => {
+    console.log(products);
+    /* products fetched from database */
+
+    /* partition products */
+
+    //first five
+    let arrFirstFive = [];
+    for(var i=0; i<5; i++){
+        arrFirstFive.push(products[i]);
+    }
+
+    //next 5
+    let arrNextFive = [];
+    for(var j=0; j<5; j++, i++){
+        arrNextFive.push(products[i]);
+    }   
+
+    // second Carosol first Five products
+
+    let car2FirstFiveArr = [];
+    for (var k = 0; k < 5; k++, i++) {
+        car2FirstFiveArr.push(products[i]);
+    }
+
+    // second carosol next five products
+
+    let car2NextFiveArr = [];
+    for (var l = 0; l < 5; l++, i++) {
+        car2NextFiveArr.push(products[i]);
+    }
+
+    console.log(car2FirstFiveArr);
+    console.log(car2NextFiveArr);
+
+    //get parent rows to update dynamically
+    const firstFiveRow = document.getElementById("firstFiveRow");
+    const nextFiveRow = document.getElementById("nextFiveRow");
+    const car2FristFive = document.getElementById("car2FristFive");
+    const car2NextFive = document.getElementById("car2NextFive");
+
+    //load first five
+    loadProducts(arrFirstFive, firstFiveRow);
+
+    //load next five
+    loadProducts(arrNextFive, nextFiveRow);
+
+    loadProducts(car2FirstFiveArr, car2FristFive);
+    loadProducts(car2NextFiveArr, car2NextFive)
+});
+
+function loadProducts(products, parentRow){
+    /* loads first five initial products */
+
+    //append products dynamically
+    products.forEach( (product) => {
+
+        //create product parent div
+        const div = document.createElement("div");
+        //redirect on click
+        div.addEventListener("click", () => {
+            productPage(product.id);
+        });
+        div.setAttribute("class", "col m-2 product-corousel-divs");
+
+        //create product image
+        const img = document.createElement("img");
+        img.setAttribute("src", product.zoomImg);
+        img.setAttribute("class", "prodImg");
+
+        // create color image
+        const colorImg = document.createElement("img");
+        colorImg.src = product.colorsImg;
+        // colorImg.setAtrribute("class", "rabia");
+
+        //create product name
+        const name = document.createElement("h5");
+        name.setAttribute("class", "prodName");
+        name.innerHTML = product.name;
+
+
+        //create product price
+        const price = document.createElement("p");
+        price.setAttribute("class", "prodPrice");
+        price.innerHTML = `Price: ${product.price}`;
+
+        //create brand 
+        const brand = document.createElement("p");
+        brand.innerHTML = product.brand;
+
+        // create ratings
+
+        const ratingsMainDiv = document.createElement("div");
+        ratingsMainDiv.setAttribute("class", "ratingsMainDiv");
+
+        const ratingsDiv = document.createElement("div");
+        ratingsDiv.innerHTML = "";
+        for(var i=0; i<product.ratings; i++){
+            const starIcon = document.createElement("span");
+            starIcon.setAttribute("class", "material-icons");
+            starIcon.innerHTML = "star";
+            ratingsDiv.append(starIcon);
+        }
+        const reviews = document.createElement("span");
+        reviews.innerHTML = `(${Math.ceil(Math.random()*199)})`;
+        ratingsDiv.append(reviews);
+
+        //append children to parent
+        div.append(img, colorImg, brand, price, ratingsMainDiv);
+        ratingsMainDiv.append(ratingsDiv, reviews);
+        parentRow.append(div);
+
+    });
+}
+
+
 //product dynamic functionality - neeraj
 function productPage(id){
     /* stores id in local storage and updates selected value and redirects to product page*/
@@ -388,8 +540,9 @@ function loadNavCount(){
     if(cart == null){
       navCart.innerHTML = 0;
     }
-    
-    navCart.innerHTML = cart.count;
+    else{
+        navCart.innerHTML = cart.count;
+    }
   
   }
   function shoppingCart(){

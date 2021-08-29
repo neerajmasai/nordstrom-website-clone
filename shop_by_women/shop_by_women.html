@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop By Women</title>
+    <link rel="stylesheet" href="shop_by_women.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" type="image/jpg" href="images/fav.png" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- <link rel="stylesheet" href="landingPage.css"> -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div id="headerDiv">
+        <div class="header1">
+            <p><span class="saleSpan">Shipping outside of the U.S. or Canada? </span><span>Build your Wish List now.
+                </span><button class="previewButton">Learn About International Shipping</button></p>
+            <div class="india">
+                <img src="https://n.nordstrommedia.com/alias/IN.gif" />
+                <p>India</p>
+            </div>
+        </div>
+        <div class="header2">
+            <div class="logoDiv">
+                <p class="logo" id="homeRedirect">NORDSTROM</p>
+            </div>
+            <div class="navList">
+                <ul class="listStyle">
+                    <li id="annSale">Shop All</li>
+                    <li id="women">Women</li>
+                    <li id="men">Men</li>
+                    <li id="kids">Kids</li>
+                    <li id="activeWear">Activewear</li>
+                    <li id="home">Home</li>
+                    <li id="gifts">Gifts</li>
+                    <li id="beauty">Beauty</li>
+                    <li id="designer">Designer</li>
+                    <li id="sale">Sale</li>
+                    <li id="brands">Brands</li>
+                </ul>
+            </div>
+            <div class="navRight">
+                <div class="search">
+                    <img src="images/outline_search_black_24dp.png" />
+                    <p>Search</p>
+                </div>
+                <select name="sign in" id="signIn">
+                    <option id="signInOption" onclick="signIn()">Sign In</option>
+                    <option id="account" onclick="myaccount()">My Account</option>
+                    <!-- <option id="">My Account</option> -->
+                </select>
+                <div class="navShopIcon" onclick="shoppingCart()">
+                    <img src="images/shopping-bag.png">
+                    <p id="navCartCount">0</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="shopWomenBody">
+        <div class="sidenav">
+            <a href="#about">Home/ Women/ All Women</a>
+            <button class="dropdown-btn" style="border-top: 1px solid rgb(216, 215, 215);">
+                Brand
+                <i class="fa fa-plus" style="float: right"></i>
+            </button>
+            <!-- dropdown -->
+            <div class="dropdown-container">
+                <!-- <input type="text" placeholder="Find a brand" /> -->
+                <div class="branding">
+                    <button class="bobbyBrown" onclick="filterByBrand('BOBBI BROWN')" style="width: 120px;">BOBBI BROWN</button><br>
+                    <button class="bobbyBrown" onclick="filterByBrand('DYSON')">DYSON</button><br>
+                    <button class="bobbyBrown" onclick="filterByBrand('ZELLA')">ZELLA</button><br>
+                    <button class="bobbyBrown" onclick="filterByBrand('LANCOME')">LANCOME</button>
+        
+                </div>
+            </div>
+            <!-- dropdown -->
+            <button class="dropdown-btn" style="border-top: 1px solid rgb(216, 215, 215);">
+                Color
+                <i class="fa fa-plus" style="float: right"></i>
+            </button>
+            <div class="dropdown-container">
+                <input type="text" placeholder="Find a brand" />
+        
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+            </div>
+            <button class="dropdown-btn" style="border-top: 1px solid rgb(216, 215, 215);">
+                Gender
+                <i class="fa fa-plus" style="float: right"></i>
+            </button>
+            <div class=" dropdown-container">
+                <a href="#">Men</a>
+                <a href="#">Women</a>
+                <a href="#">Unisex</a>
+            </div>
+            <button class="dropdown-btn" style="border-top: 1px solid rgb(216, 215, 215);">
+                Material
+                <i class="fa fa-plus" style="float: right"></i>
+            </button>
+            <div class="dropdown-container" style="border-top: 1px solid rgb(216, 215, 215);">
+                <a href="#">Men</a>
+                <a href="#">Women</a>
+                <a href="#">Unisex</a>
+            </div>
+            <button class="dropdown-btn" style="border-top: 1px solid rgb(216, 215, 215);">
+                Price
+                <i class="fa fa-plus" style="float: right"></i>
+            </button>
+            <div class="dropdown-container">
+                <a href="#">$0 - $50</a>
+                <a href="#">$50 - $100</a>
+                <a href="#">$100 - $200</a>
+                <a href="#">$200 - $300</a>
+                <a href="#">$200 - $300</a>
+            </div>
+            <button class="dropdown-btn" style="border-top: 1px solid rgb(216, 215, 215);">
+                Product Type
+                <i class="fa fa-plus" style="float: right"></i>
+            </button>
+            <div class="dropdown-container">
+                <a href="#">Men</a>
+                <a href="#">Women</a>
+                <a href="#">Unisex</a>
+            </div>
+            <button class="dropdown-btn" style="border-top: 1px solid rgb(216, 215, 215);">
+                Sale
+                <i class="fa fa-plus" style="float: right"></i>
+            </button>
+            <div class="dropdown-container">
+                <a href="#">Men</a>
+                <a href="#">Women</a>
+                <a href="#">Unisex</a>
+            </div>
+            <button class="dropdown-btn" style="border-top: 1px solid rgb(216, 215, 215);">
+                Size
+                <i class="fa fa-plus" style="float: right"></i>
+            </button>
+            <div class="dropdown-container">
+                <a href="#">XS</a>
+                <a href="#">S</a>
+                <a href="#">M</a>
+                <a href="#">L</a>
+            </div>
+            <button class="dropdown-btn" style="border-top: 1px solid rgb(216, 215, 215);">
+                More to Explore
+                <i class="fa fa-plus" style="float: right"></i>
+            </button>
+            <div class="dropdown-container">
+                <a href="#">Clothing</a>
+                <a href="#">Shoes</a>
+                <a href="#">Accessories</a>
+                <a href="#">Grooming & Cologne</a>
+            </div>
+            <a href="#contact">Search</a>
+        </div>
+        <!-- sidebar divupr -->
+        <div class="productsDiv">
+            <div class="womenFlex">
+                <div>
+                    <h4 style="margin-top: 30px; margin-left: 15px;">All Women</h4>
+                    <p style="margin-left: 15px;">108566 items</p>
+                </div>
+                <div class="select">
+                    <select id="sorting" onchange="getSelected()">
+                        <option value="CustomerRating">Sort by option</option>
+                        <option value="low" id="low2High">Sort by Low to High</option>
+                        <option value="high" id="high">Sort by High to Low</option>
+                    </select>
+                </div>
+            </div>
+            <div id="shopWomenProducts"></div>
+        </div>
+    </div>
+    <div class="footerDiv">
+        <div class="footerTextDiv">
+            <div>
+                <h5>Customer Service</h5>
+                <p>Contact Us</p>
+                <p>Order Status</p>
+                <p>Shipping</p>
+                <p>Returns & Exchanges</p>
+                <p>Product Recalls</p>
+            </div>
+            <div>
+                <h5>About Us</h5>
+                <p>Stores & Events</p>
+                <p>Careers</p>
+                <p>Corporate Social Responsibility</p>
+                <p>Diversity, Inclusion & Belonging</p>
+                <p>Get Email Updates</p>
+            </div>
+            <div>
+                <h5>Services</h5>
+                <p>Personal Styling</p>
+                <p>Alterations & Tailoring</p>
+                <p>Spa Nordstrom</p>
+                <p>Nordstrom Restaurants</p>
+                <p>Gift Cards</p>
+            </div>
+            <div>
+                <h5>Nordstrom Card</h5>
+                <p>Pay My Bill</p>
+                <p>Manage My Nordstrom Card</p>
+            </div>
+            <div>
+                <h5>Nordstrom, Inc</h5>
+                <p>Nordstrom Rack</p>
+                <p>Nordstrom Canada</p>
+                <p>Trunk Club</p>
+                <p>Investor Relations</p>
+                <p>Press Releases</p>
+            </div>
+            <div>
+                <h5>Gift Cards</h5>
+                <p>Stores & Events</p>
+                <p>Careers</p>
+                <p>Trunk Club</p>
+                <p>Investor Relations</p>
+                <p>Press Releases</p>
+            </div>
+        </div>
+        <div class="termsOfService">
+            <p>Your Privacy Rights</p>
+            <p>Do Not Sell My Info</p>
+            <p>Terms & Conditions</p>
+            <p>Interes-Based Ads</p>
+            <p>@2021 Nordstrom, Inc.</p>
+        </div>
+    </div>
+</body>
+</html>
+<script src="shop_by_women.js"></script>

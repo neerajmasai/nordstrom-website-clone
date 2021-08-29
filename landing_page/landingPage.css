@@ -2,6 +2,9 @@ body {
     font-family: 'Voltaire', sans-serif;
     /* background-color: gray; */
 }
+.product-corousel-divs:hover{
+    cursor: pointer;
+}
 #headerDiv {
     width: 100%;
     height: 130px;
@@ -10,7 +13,7 @@ body {
 }
 .header1 {
     height: 50px;
-    background-color: rgb(251,228,70);
+    background-color: black;
     text-align: center;
     margin-top: 0px;
     padding-top: 0px;
@@ -18,6 +21,7 @@ body {
     justify-content: space-between;
 }
 .header1 > p {
+    color: white;
     margin-top: 0px;
     padding-top: 15px;
     font-size: 14px;
@@ -28,13 +32,15 @@ body {
 }
 .previewButton {
     border: none;
-    background-color: rgb(251,228,70);
+    background-color: black;
+    color: white;
     font-size: 14px;
     text-decoration: underline;
 }
 .india {
     float: right;
     display: flex;
+    color: white;
     margin-right: 30px;
 }
 .india:hover {
@@ -50,7 +56,7 @@ body {
 }
 .india > p {
     font-size: 14px;
-    padding-top: 3px;
+    padding-top: 15px;
 }
 .header2 {
     height: 80px;
@@ -73,6 +79,9 @@ body {
     padding-right: 0px;
     margin-top: 22px;
 }
+.logo:hover {
+    cursor: pointer;
+}
 .navList {
     width: 50%;
     height: 80px;
@@ -87,9 +96,9 @@ body {
     padding-left: 0px;
     font-size: 14px;
 }
-.listStyle > li:first-child {
+/* .listStyle > li:first-child {
     background-color: rgb(251,228,70);
-}
+} */
 #women:hover, #men:hover, #kids:hover, #activeWear:hover, #gifts:hover, #home:hover, #beauty:hover,
 #brands:hover, #sale:hover, #designer:hover {
     font-weight: bold;
@@ -139,7 +148,7 @@ body {
 }
 .navShopIcon > p{
     position: absolute;
-    top: 20px;
+    top: 30px;
     font-size: small;
 }
 .navShopIcon:hover{
@@ -174,10 +183,10 @@ body {
     display: flex;
 }
 .body1 > img:first-child {
-    width: 60%;
+    width: 50%;
 }
 .body1 > img:last-child {
-    width: 40%;
+    width: 50%;
 }
 #carosol1 {
     height: 180px;
@@ -211,35 +220,67 @@ body {
     width: 100%;
     height: 450px;
 }
-.greatDeals {
-    height: 550px;
-    width: 90%;
-    margin-left: 5%;
-    margin-top: 50px;
-    /* background-color: gray; */
-    /* border: 1px solid black; */
-}
-.greatDealImgs {
-    height: 500px;
-    /* width: 100%; */
-    display: flex;
-    padding-left: 20px;
-    justify-content: space-between;
-    /* border: 1px solid black; */
-}
-.greatDealImgs > div {
-    height: 500px;
-    /* width: 50%; */
-    /* border: 1px solid red; */
-}
-.greatDealImgs > div:hover {
-    cursor: pointer;
-}
-.greatDealImgs > div > img {
-    height: 100%;
-    width: 20%;
+
+#prevIcon{
+    font-size: 50px;
+    color: black;
 }
 
+#nextIcon{
+    font-size: 50px;
+    color: black;
+}
+
+#prevIcon:hover{
+    color: white;
+    background: black;
+}
+
+#nextIcon:hover{
+    color: white;
+    background: black;
+}
+
+#demo{
+    margin-top: 5%;
+}
+#demo2{
+    margin-top: 2%;
+}
+.carousel-inner img {
+  width: 100%;
+  height: 300px;
+}
+
+.ratingsMainDiv {
+    display: flex;
+}
+.sliderHeading {
+    margin-left: 5%;
+}
+.prodPrice {
+    font-weight: bold;
+}
+
+.prodImg ~ img {
+    height: 30px;
+}
+
+.slider .slick-next::before,
+.slider .slick-prev::before {
+  /* font-family: "slice"; */
+  font-size: 30px;
+  color: black;
+  background-color: rgb(229, 233, 232);
+  border-radius: 20px;
+}
+.prodImg {
+    width: 100%;
+    height: 360px;
+}
+.prodName {
+    line-height: 0.5cm;
+}
 .slider .slick-next::before,
 .slider .slick-prev::before {
   /* font-family: "slice"; */

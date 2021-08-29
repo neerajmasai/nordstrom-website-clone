@@ -3,41 +3,59 @@ let homeRedirect = document.getElementById("homeRedirect");
 homeRedirect.addEventListener("click", redirectToHome);
 
 function redirectToHome() {
-    window.location.href = "..landing_page/landingPage.html";
+    window.location.href = "../landing_page/landingPage.html";
 }
 
 window.onload = function logged() {
-    var isLoggedIn = JSON.parse(localStorage.getItem("isLoggedIn"));
-    if(isLoggedIn){
-        //show name and logout option
-        var sign = document.getElementById("signInOption");
-        var currentEmail = JSON.parse(localStorage.getItem("currentEmail"));
-        var allEmails = JSON.parse(localStorage.getItem("allEmails"));
-        var details = allEmails.filter(function (el) {
-            return el.curEmail == currentEmail;
-        })[0];
-        sign.innerHTML = details.fName;
-        var logoutDiv = document.getElementById("signIn")
-        var logout = document.createElement("option");
-        logout.value = "Sign Out";
-        logout.innerHTML = "Sign Out";
-        logout.addEventListener("click", () => {
-            isLoggedIn = false;
-            localStorage.setItem("isLoggedIn", JSON.stringify(isLoggedIn));
-            window.location.reload();
-        });
-        logoutDiv.append(logout);
-    }
-    else{
-        //show Sign In
-        var sign = document.getElementById("signInOption");
-        sign.innerHTML = "Sign In";
-        sign.value = "Sign In";
-    }
+  var isLoggedIn = JSON.parse(localStorage.getItem("isLoggedIn"));
+  
+  if(isLoggedIn){
+      //show name and logout option
+      var sign = document.getElementById("signInOption");
+      var currentEmail = JSON.parse(localStorage.getItem("currentEmail"));
+      fetch(`http://localhost:2345/users/query/${currentEmail}`)
+          .then(response => response.json())
+          .then((details) => {
+              console.log('details:', details);
+              sign.innerHTML = `Hi, ${details[0].firstName}`;
+              var logoutDiv = document.getElementById("signIn")
+              var logout = document.createElement("option");
+              logout.value = "Sign Out";
+              logout.innerHTML = "Sign Out";
+              logout.addEventListener("click", () => {
+                  isLoggedIn = false;
+                  localStorage.setItem("isLoggedIn", JSON.stringify(isLoggedIn));
+                  window.location.reload();
+              });
+              logoutDiv.append(logout);
+              var mail = document.getElementById("curmail");
+              mail.innerHTML = currentEmail;
+              var username = document.getElementById("username");
+              username.innerHTML = details[0].firstName + " " + details[0].lastName;
+          })
+  }
+  else{
+      //show Sign In
+      var sign = document.getElementById("signInOption");
+      sign.innerHTML = "Sign In";
+      sign.value = "Sign In";
+  }
+}
+function myaccount() {
+  /* go to my account page */
+
+  var isLoggedIn = JSON.parse(localStorage.getItem("isLoggedIn"));
+
+  if (isLoggedIn) {
+      window.location.href = "../personalInfo_page/personalInfo_page.html";
+  }
+  else{
+       window.location.href = "../login page/login.html";
+  }
 }
 function signIn(){
-    /* redirect to sign in page */
-    window.location.href = "../login page/login.html";
+  /* redirect to sign in page */
+  window.location.href = "../login page/login.html";
 }
 
 function shoppingCart(){
@@ -57,8 +75,10 @@ function loadNavCount(){
   if(cart == null){
     navCart.innerHTML = 0;
   }
+  else {
+    navCart.innerHTML = cart.count;
+  }
   
-  navCart.innerHTML = cart.count;
 
 }
 

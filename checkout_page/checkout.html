@@ -15,8 +15,8 @@
 <body>
     <div id="headerDiv">
       <div class="header1">
-        <p><span class="saleSpan">Preview Anniversary Sale! </span>Build your Wish List now - sale starts July 28. <button
-            class="previewButton">Preview the sale</button></p>
+        <p><span class="saleSpan">Shipping outside of the U.S. or Canada? </span>Build your Wish List now. <button
+            class="previewButton">Learn About International Shipping.</button></p>
         <div class="india">
           <img src="https://n.nordstrommedia.com/alias/IN.gif" />
           <p>India</p>
@@ -28,7 +28,7 @@
         </div>
         <div class="navList">
           <ul class="listStyle">
-            <li id="annSale">Anniversary Sale</li>
+            <li id="annSale">Shop All</li>
             <li id="women">Women</li>
             <li id="men">Men</li>
             <li id="kids">Kids</li>
@@ -48,6 +48,7 @@
           </div>
           <select name="sign in" id="signIn">
             <option id="signInOption" onclick="signIn()">Sign In</option>
+            <option id="account" onclick="myaccount()">My Account</option>
           </select>
           <div class="navShopIcon" onclick="shoppingCart()">
             <img src="images/shopping-bag.png">
@@ -1007,6 +1008,44 @@
         </div>
     </div>
 
+    <!-- Address form -->
+
+    <div class="addressDiv">
+       <h2>Address</h2>
+       <input id="address1" type="text" placeholder="Address Line 1" class="addressLines firstAddress outlineNone" style="width: 603px;"/>
+  
+       <input id="address2" type="text" placeholder="Address Line 2" class="addressLines outlineNone" style="width: 603px;"/>
+       <br>
+       <input id="city" type="text" placeholder="City" class="inputCity outlineNone"/>
+       <input id="state" type="text" placeholder="State" class="inputState outlineNone"/>
+       <br>
+       <input id="pin" type="text" placeholder="Postal Code"  class="inputCity outlineNone"/>
+       <select id="country" name="country", id="selectCountry" placeholder="Country">
+        <option>Country</option>
+        <option value="Algeria">Algeria</option>
+        <option value="Australia">Australia</option>
+        <option value="Bangladesh">Bangladesh</option>
+        <option value="Brazil">Brazil</option>
+        <option value="Cambodia">Cambodia</option>
+        <option value="Canada">Canada</option>
+        <option value="Denmark">Denmark</option>
+        <option value="Egypt">Egypt</option>
+        <option value="France">France</option>
+        <option value="Georgia">Georgia</option>
+        <option value="Hongkong">Hongkong</option>
+        <option value="India">India</option>
+        <option value="USA">USA</option>
+        <option value="Malaysia">Malaysia</option>
+        <option value="Nigeria">Nigeria</option>
+        <option value="Oman">Oman</option>
+        <option value="Singapore">Singapore</option>
+        <option value="Zambia">Zambia</option>
+       </select>
+       <br>
+      <!-- <input id="isSave" style="margin-left: 15%; margin-top: 20px;" type="checkbox" checked="checked" name="sameadr"> Save this address as primary address
+      <button onclick="saveShippingDetails()" class="saveAddress">Save Address</button> -->
+    </div>
+
     <!-- Payment -->
      <div id="col-50">
             <h3>Payment</h3>
@@ -1018,22 +1057,22 @@
               <i class="fa fa-cc-discover" style="color:orange;"></i>
             </div>
             <label for="cname">Name on Card</label>
-            <input type="text" id="cname" name="cardname" placeholder="John More Doe">
+            <input id="nameOnCard" type="text" id="nameOnCard" name="cardname" placeholder="John More Doe" class=" outlineNone"/>
             <label for="ccnum">Credit card number</label>
-            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+            <input type="text" id="cardNumber" name="cardnumber" placeholder="1111-2222-3333-4444" class=" outlineNone"/>
             
             <div class="row">
                 <div class="col-50">
                     <label  for="expmonth" class="expMon">Exp Month:</label>
-                    <input  type="text" class="expInput" id="expmonth" name="expmonth" placeholder="September">
+                    <input  id="expMonth" type="text" class="expInput outlineNone" id="expMonth" name="expmonth" placeholder="September"/>
                 </div>
                 <div class="col-50">
                   <label  for="expyear">Exp Year:</label>
-                  <input  type="text" class="expInput" id="expyear" name="expyear" placeholder="2018">
+                  <input  id="expYear" type="text" class="expInput outlineNone" id="expYear" name="expyear" placeholder="2018"/>
                 </div>
                 <div class="col-50">
                   <label for="cvv">CVV:</label>
-                  <input  type="text" class="expInput" id="cvv" name="cvv" placeholder="352">
+                  <input type="text" class="expInput outlineNone" id="cvv" name="cvv" placeholder="352"/>
                 </div>
             </div>
           </div>

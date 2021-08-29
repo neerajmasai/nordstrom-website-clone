@@ -12,7 +12,7 @@ button:hover{
 }
 .header1 {
     height: 50px;
-    background-color: rgb(251,228,70);
+    background-color: black;
     text-align: center;
     margin-top: 0px;
     padding-top: 0px;
@@ -20,6 +20,7 @@ button:hover{
     justify-content: space-between;
 }
 .header1 > p {
+    color: white;
     margin-top: 0px;
     padding-top: 15px;
     font-size: 14px;
@@ -30,7 +31,8 @@ button:hover{
 }
 .previewButton {
     border: none;
-    background-color: rgb(251,228,70);
+    color: white;
+    background-color: black;
     font-size: 14px;
     text-decoration: underline;
 }
@@ -48,6 +50,7 @@ button:hover{
     /* padding-right: 10px; */
 }
 .india > p {
+    color: white;
     font-size: 14px;
     padding-top: 3px;
 }
@@ -89,9 +92,9 @@ button:hover{
     padding-left: 0px;
     font-size: 14px;
 }
-.listStyle > li:first-child {
+/* .listStyle > li:first-child {
     background-color: rgb(251,228,70);
-}
+} */
 .listStyle > li:nth-child(10) {
     color: red;
 }

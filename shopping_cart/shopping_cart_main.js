@@ -1,25 +1,31 @@
 /* shopping cart functionality */
 window.onload = function logged() {
     var isLoggedIn = JSON.parse(localStorage.getItem("isLoggedIn"));
+    
     if(isLoggedIn){
         //show name and logout option
         var sign = document.getElementById("signInOption");
         var currentEmail = JSON.parse(localStorage.getItem("currentEmail"));
-        var allEmails = JSON.parse(localStorage.getItem("allEmails"));
-        var details = allEmails.filter(function (el) {
-            return el.curEmail == currentEmail;
-        })[0];
-        sign.innerHTML = details.fName;
-        var logoutDiv = document.getElementById("signIn")
-        var logout = document.createElement("option");
-        logout.value = "Sign Out";
-        logout.innerHTML = "Sign Out";
-        logout.addEventListener("click", () => {
-            isLoggedIn = false;
-            localStorage.setItem("isLoggedIn", JSON.stringify(isLoggedIn));
-            window.location.reload();
-        });
-        logoutDiv.append(logout);
+        fetch(`http://localhost:2345/users/query/${currentEmail}`)
+            .then(response => response.json())
+            .then((details) => {
+                console.log('details:', details);
+                sign.innerHTML = `Hi, ${details[0].firstName}`;
+                var logoutDiv = document.getElementById("signIn")
+                var logout = document.createElement("option");
+                logout.value = "Sign Out";
+                logout.innerHTML = "Sign Out";
+                logout.addEventListener("click", () => {
+                    isLoggedIn = false;
+                    localStorage.setItem("isLoggedIn", JSON.stringify(isLoggedIn));
+                    window.location.reload();
+                });
+                logoutDiv.append(logout);
+                var mail = document.getElementById("curmail");
+                mail.innerHTML = currentEmail;
+                var username = document.getElementById("username");
+                username.innerHTML = details[0].firstName + " " + details[0].lastName;
+            })
     }
     else{
         //show Sign In
@@ -28,14 +34,25 @@ window.onload = function logged() {
         sign.value = "Sign In";
     }
 }
+function myaccount() {
+    /* go to my account page */
+
+    var isLoggedIn = JSON.parse(localStorage.getItem("isLoggedIn"));
+
+    if (isLoggedIn) {
+        window.location.href = "../personalInfo_page/personalInfo_page.html";
+    }
+    else{
+         window.location.href = "../login page/login.html";
+    }
+}
 function signIn(){
     /* redirect to sign in page */
     window.location.href = "../login page/login.html";
 }
+
 let metaCart = JSON.parse(localStorage.getItem("metaCart"));
 
-//product images path
-const PATH = "../products_page/";
 
 function loadShoppingCart(){
     /* loads shopping cart items from local storage */
@@ -81,7 +98,7 @@ function appendCartItem(cartItem){
     image.style.height = "180px";
     image.style.textAlign = "center";
     image.style.marginLeft = "10%";
-    image.setAttribute("src", PATH+cartItem.prodObj.zoomImg);
+    image.setAttribute("src", cartItem.prodObj.zoomImg);
 
     imgDiv.append(image);
 

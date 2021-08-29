@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Purchases Page</title>
+        <link rel="shortcut icon" type="image/jpg" href="images/fav.png" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Allison&family=Great+Vibes&family=Ma+Shan+Zheng&family=Playball&family=Tangerine&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="shipping_page.css">
+    </head>
+
+    <body>
+        <div id="headerDiv">
+            <div class="header1">
+                <p style="margin-left: 460px;"><span class="saleSpan">Pick up today. </span>Curbside Pickup - it's safe, easy and free.
+                    <button class="previewButton">Learn More</button>
+                </p>
+                <div class="india">
+                    <img src="https://n.nordstrommedia.com/alias/IN.gif" />
+                    <p>India</p>
+                </div>
+            </div>
+            <div class="header2">
+                <div class="logoDiv">
+                    <p class="logo" id="homeRedirect">NORDSTROM</p>
+                </div>
+                <div class="navList">
+                    <ul class="listStyle">
+                        <li id="annSale">Shop All</li>
+                        <li id="women">Women</li>
+                        <li id="men">Men</li>
+                        <li id="kids">Kids</li>
+                        <li id="activeWear">Activewear</li>
+                        <li id="home">Home</li>
+                        <li id="gifts">Gifts</li>
+                        <li id="beauty">Beauty</li>
+                        <li id="designer">Designer</li>
+                        <li id="sale">Sale</li>
+                        <li id="brands">Brands</li>
+                    </ul>
+                </div>
+                <div class="navRight">
+                    <div class="search">
+                        <img src="images/outline_search_black_24dp.png" />
+                        <p>Search</p>
+                    </div>
+                    <select name="sign in" id="signIn">
+                        <option id="signInOption" onclick="signIn()">Sign In</option>
+                        <option id="account" onclick="myaccount()">My Account</option>
+                    </select>
+                    <div class="navShopIcon" onclick="shoppingCart()">
+                        <img src="images/shopping-bag.png">
+                        <p id="navCartCount">0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="yesNoModal" class="yesNoModal" style="text-align: center;">
+            <div class="topBar">
+                <!-- <span onclick="hideModal()" id="closeIcon" class="material-icons">
+                            close
+                        </span> -->
+            </div>
+            <h3>NORDSTROM</h3>
+            <h4>Your details have been updated!</h4>
+            <!-- <div class="modalBtns">
+                        <button id="modalYesBtn">Yes</button>
+                        <button id="modalNoBtn">No</button>
+                    </div> -->
+        </div>
+
+        <div class="purchasePageBody">
+            <div class="purchasePageLeft purchaseCommon">
+                <div class="accountHolder">
+                    <div id="account-initials"><h2 id="accountInitial"></h2></div>
+                    <p class="accountName" id="accountName"></p>
+                    <p>Hey, Nordy Club Member!</p>
+                </div>
+                <div class="menuItems purchaseDiv" id="purchaseDiv">
+                    <img src="images/shopping-bag2.png" />
+                    <p>Purchases</p>
+                </div>
+                <div class="menuItems" id="personalDiv">
+                    <img src="images/lock.png" />
+                    <p>Password & Personal Info</p>
+                </div>
+                <div class="menuItems shippingAddress" id="shippingDiv">
+                    <img src="images/truck.png" />
+                    <p>Shipping Addresses</p>
+                </div>
+                <div class="menuItems" id="paymentDiv">
+                    <img src="images/card.png" />
+                    <p>Payment Methods</p>
+                </div>
+                <p style="margin-top: 20px; text-decoration: underline; margin-left: 20px;" class="signOut">Sign Out</p>
+            </div>
+            <div class="purchasePageRight purchaseCommon">
+                <p style="margin-left: 125px; margin-top: 40px;">Shipping Address</p>
+                <div class="partByNeeraj">
+                    <p style="margin-left: 100px; margin-top:30px;"> Checkout faster by adding one or more shipping addresses to your account</p>
+                    <div class="addressDiv">
+                        <input id="address1" type="text" placeholder="Address Line 1" class="addressLines firstAddress outlineNone" style="width: 535px; margin-left: 20px;"/>
+                   
+                        <input id="address2" type="text" placeholder="Address Line 2" class="addressLines outlineNone" style="width: 535px; margin-left: 20px;"/>
+                        <br>
+                        <input id="city" type="text" placeholder="City" class="inputCity outlineNone" style="margin-left: 20px;"/>
+                        <input id="state" type="text" placeholder="State" class="inputState outlineNone" style="width: 262px;"/>
+                        <br>
+                        <input id="pin" type="text" placeholder="Postal Code"  class="inputCity outlineNone" style="margin-left: 20px;"/>
+                        <select id="country" name="country", id="selectCountry" placeholder="Country" class="outlineNone">
+                         <option>Country</option>
+                         <option value="Algeria">Algeria</option>
+                         <option value="Australia">Australia</option>
+                         <option value="Bangladesh">Bangladesh</option>
+                         <option value="Brazil">Brazil</option>
+                         <option value="Cambodia">Cambodia</option>
+                         <option value="Canada">Canada</option>
+                         <option value="Denmark">Denmark</option>
+                         <option value="Egypt">Egypt</option>
+                         <option value="France">France</option>
+                         <option value="Georgia">Georgia</option>
+                         <option value="Hongkong">Hongkong</option>
+                         <option value="India">India</option>
+                         <option value="USA">USA</option>
+                         <option value="Malaysia">Malaysia</option>
+                         <option value="Nigeria">Nigeria</option>
+                         <option value="Oman">Oman</option>
+                         <option value="Singapore">Singapore</option>
+                         <option value="Zambia">Zambia</option>
+                        </select>
+                        <br>
+                       <input id="isSave" style="margin-left: 3%; margin-top: 20px;" type="checkbox" checked="checked" name="sameadr"> Save this address as primary address
+                       <button onclick="saveShippingDetails()" class="saveAddress">Save Address</button>
+                     </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="footerDiv">
+            <div class="footerTextDiv">
+                <div>
+                    <h5>Customer Service</h5>
+                    <p>Contact Us</p>
+                    <p>Order Status</p>
+                    <p>Shipping</p>
+                    <p>Returns & Exchanges</p>
+                    <p>Product Recalls</p>
+                </div>
+                <div>
+                    <h5>About Us</h5>
+                    <p>Stores & Events</p>
+                    <p>Careers</p>
+                    <p>Corporate Social Responsibility</p>
+                    <p>Diversity, Inclusion & Belonging</p>
+                    <p>Get Email Updates</p>
+                </div>
+                <div>
+                    <h5>Services</h5>
+                    <p>Personal Styling</p>
+                    <p>Alterations & Tailoring</p>
+                    <p>Spa Nordstrom</p>
+                    <p>Nordstrom Restaurants</p>
+                    <p>Gift Cards</p>
+                </div>
+                <div>
+                    <h5>Nordstrom Card</h5>
+                    <p>Pay My Bill</p>
+                    <p>Manage My Nordstrom Card</p>
+                </div>
+                <div>
+                    <h5>Nordstrom, Inc</h5>
+                    <p>Nordstrom Rack</p>
+                    <p>Nordstrom Canada</p>
+                    <p>Trunk Club</p>
+                    <p>Investor Relations</p>
+                    <p>Press Releases</p>
+                </div>
+                <div>
+                    <h5>Gift Cards</h5>
+                    <p>Stores & Events</p>
+                    <p>Careers</p>
+                    <p>Trunk Club</p>
+                    <p>Investor Relations</p>
+                    <p>Press Releases</p>
+                </div>
+            </div>
+            <div class="termsOfService">
+                <p>Your Privacy Rights</p>
+                <p>Do Not Sell My Info</p>
+                <p>Terms & Conditions</p>
+                <p>Interes-Based Ads</p>
+                <p>@2021 Nordstrom, Inc.</p>
+            </div>
+        </div>
+    </body>
+    <script src="shipping_page.js"></script>
+</html>

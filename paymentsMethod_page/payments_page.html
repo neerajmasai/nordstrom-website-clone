@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Payments Page</title>
+        <link rel="shortcut icon" type="image/jpg" href="images/fav.png" />
+        <link rel="stylesheet" type="text/css"
+            href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Allison&family=Great+Vibes&family=Ma+Shan+Zheng&family=Playball&family=Tangerine&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="payments_page.css">
+    </head>
+
+    <body>
+        <div id="headerDiv">
+            <div class="header1">
+                <p style="margin-left: 460px;"><span class="saleSpan">Pick up today. </span>Curbside Pickup - it's safe, easy and free.
+                    <button class="previewButton">Learn More</button>
+                </p>
+                <div class="india">
+                    <img src="https://n.nordstrommedia.com/alias/IN.gif" />
+                    <p>India</p>
+                </div>
+            </div>
+            <div class="header2">
+                <div class="logoDiv">
+                    <p class="logo" id="homeRedirect">NORDSTROM</p>
+                </div>
+                <div class="navList">
+                    <ul class="listStyle">
+                        <li id="annSale">Shop All</li>
+                        <li id="women">Women</li>
+                        <li id="men">Men</li>
+                        <li id="kids">Kids</li>
+                        <li id="activeWear">Activewear</li>
+                        <li id="home">Home</li>
+                        <li id="gifts">Gifts</li>
+                        <li id="beauty">Beauty</li>
+                        <li id="designer">Designer</li>
+                        <li id="sale">Sale</li>
+                        <li id="brands">Brands</li>
+                    </ul>
+                </div>
+                <div class="navRight">
+                    <div class="search">
+                        <img src="images/outline_search_black_24dp.png" />
+                        <p>Search</p>
+                    </div>
+                    <select name="sign in" id="signIn">
+                        <option id="signInOption" onclick="signIn()">Sign In</option>
+                        <option id="account" onclick="myaccount()">My Account</option>
+                    </select>
+                    <div class="navShopIcon" onclick="shoppingCart()">
+                        <img src="images/shopping-bag.png">
+                        <p id="navCartCount">0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="yesNoModal" class="yesNoModal" style="text-align: center;">
+            <div class="topBar">
+                <!-- <span onclick="hideModal()" id="closeIcon" class="material-icons">
+                    close
+                </span> -->
+            </div>
+            <h3>NORDSTROM</h3>
+            <h4>Your details have been updated!</h4>
+            <!-- <div class="modalBtns">
+                <button id="modalYesBtn">Yes</button>
+                <button id="modalNoBtn">No</button>
+            </div> -->
+        </div>
+        <div class="purchasePageBody">
+            <div class="purchasePageLeft purchaseCommon">
+                <div class="accountHolder">
+                    <div id="account-initials"><h2 id="accountInitial"></h2></div>
+                    <p class="accountName" id="accountName"></p>
+                    <p>Hey, Nordy Club Member!</p>
+                </div>
+                <div class="menuItems purchaseDiv" id="purchaseDiv">
+                    <img src="images/shopping-bag2.png" />
+                    <p>Purchases</p>
+                </div>
+                <!-- <div class="menuItems">
+                <img src="images/wishlist.png" />
+                <p>Wish List</p>
+            </div> -->
+                <!-- <div class="menuItems">
+                <img src="images/looks.png" />
+                <p>Looks</p>
+            </div> -->
+                <div class="menuItems" id="personalDiv">
+                    <img src="images/lock.png" />
+                    <p>Password & Personal Info</p>
+                </div>
+                <div class="menuItems" id="shippingDiv">
+                    <img src="images/truck.png" />
+                    <p>Shipping Addresses</p>
+                </div>
+                <div class="menuItems paymentsDiv" id="paymentDiv">
+                    <img src="images/card.png" />
+                    <p>Payment Methods</p>
+                </div>
+                <p style="margin-top: 20px; text-decoration: underline; margin-left: 20px;" class="signOut">Sign Out</p>
+            </div>
+            <div class="purchasePageRight purchaseCommon">
+                <p>Payment Method</p>
+                <div class="partByNeeraj" id="paymentsMainDiv">
+                    <div id="col-50">
+                        <h4>Your Primary Credit Card Details:</h4>
+                        <label for="fname">Accepted Cards</label>
+                        <div class="icon-container">
+                            <i class="fa fa-cc-visa" style="color:navy;"></i>
+                            <i class="fa fa-cc-amex" style="color:rgb(46, 46, 230);"></i>
+                            <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                            <i class="fa fa-cc-discover" style="color:orange;"></i>
+                        </div>
+                        <label for="cname">Name on Card</label>
+                        <input id="nameOnCard" type="text" id="nameOnCard" name="cardname" placeholder="John More Doe"
+                            class=" outlineNone" />
+                        <label for="ccnum">Credit card number</label>
+                        <input type="text" id="cardNumber" name="cardnumber" placeholder="1111-2222-3333-4444" class=" outlineNone" />
+                    
+                        <div class="row">
+                            <div class="col-45" style="margin-left: 20px;">
+                                <label for="expmonth" class="expMon">Exp Month:</label>
+                                <input id="expMonth" type="text" class="expInput outlineNone" id="expMonth" name="expmonth"
+                                   style="width:200px;" placeholder="September" />
+                            </div>
+                            <div class="col-45" style="margin-left: 20px;">
+                                <label for="expyear">Exp Year:</label>
+                                <input id="expYear" type="text" class="expInput outlineNone" id="expYear" name="expyear" style="width:200px;"
+                                    placeholder="2018" />
+                            </div>
+                            <div class="col-45" style="margin-left: 20px;">
+                                <label for="cvv">CVV:</label>
+                                <input id="cvv" type="text" class="expInput outlineNone" id="cvv" name="cvv" placeholder="352" style="width:200px;" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <button onclick="savePaymentMethod()" class="saveAddress" style="margin-left:23px;">Save Card</button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="footerDiv">
+            <div class="footerTextDiv">
+                <div>
+                    <h5>Customer Service</h5>
+                    <p>Contact Us</p>
+                    <p>Order Status</p>
+                    <p>Shipping</p>
+                    <p>Returns & Exchanges</p>
+                    <p>Product Recalls</p>
+                </div>
+                <div>
+                    <h5>About Us</h5>
+                    <p>Stores & Events</p>
+                    <p>Careers</p>
+                    <p>Corporate Social Responsibility</p>
+                    <p>Diversity, Inclusion & Belonging</p>
+                    <p>Get Email Updates</p>
+                </div>
+                <div>
+                    <h5>Services</h5>
+                    <p>Personal Styling</p>
+                    <p>Alterations & Tailoring</p>
+                    <p>Spa Nordstrom</p>
+                    <p>Nordstrom Restaurants</p>
+                    <p>Gift Cards</p>
+                </div>
+                <div>
+                    <h5>Nordstrom Card</h5>
+                    <p>Pay My Bill</p>
+                    <p>Manage My Nordstrom Card</p>
+                </div>
+                <div>
+                    <h5>Nordstrom, Inc</h5>
+                    <p>Nordstrom Rack</p>
+                    <p>Nordstrom Canada</p>
+                    <p>Trunk Club</p>
+                    <p>Investor Relations</p>
+                    <p>Press Releases</p>
+                </div>
+                <div>
+                    <h5>Gift Cards</h5>
+                    <p>Stores & Events</p>
+                    <p>Careers</p>
+                    <p>Trunk Club</p>
+                    <p>Investor Relations</p>
+                    <p>Press Releases</p>
+                </div>
+            </div>
+            <div class="termsOfService">
+                <p>Your Privacy Rights</p>
+                <p>Do Not Sell My Info</p>
+                <p>Terms & Conditions</p>
+                <p>Interes-Based Ads</p>
+                <p>@2021 Nordstrom, Inc.</p>
+            </div>
+        </div>
+    </body>
+    <script src="payments_page.js"></script>
+</html>
