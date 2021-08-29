@@ -9,13 +9,16 @@
         <link rel="shortcut icon" type="image/jpg" href="images/fav.png" />
         <link rel="stylesheet" type="text/css"
             href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Allison&family=Great+Vibes&family=Ma+Shan+Zheng&family=Playball&family=Tangerine&display=swap"
+            rel="stylesheet">
         <link rel="stylesheet" href="payments_page.css">
     </head>
 
     <body>
         <div id="headerDiv">
             <div class="header1">
-                <p><span class="saleSpan">Pick up today. </span>Curbside Pickup - it's safe, easy and free.
+                <p style="margin-left: 460px;"><span class="saleSpan">Pick up today. </span>Curbside Pickup - it's safe, easy and free.
                     <button class="previewButton">Learn More</button>
                 </p>
                 <div class="india">
@@ -60,7 +63,7 @@
         <div class="purchasePageBody">
             <div class="purchasePageLeft purchaseCommon">
                 <div class="accountHolder">
-                    <div id="account-initials"><h3 id="accountInitial"></h3></div>
+                    <div id="account-initials"><h2 id="accountInitial"></h2></div>
                     <p class="accountName" id="accountName"></p>
                     <p>Hey, Nordy Club Member!</p>
                 </div>
@@ -88,7 +91,7 @@
                     <img src="images/card.png" />
                     <p>Payment Methods</p>
                 </div>
-                <p style="margin-top: 20px; text-decoration: underline; margin-left: 20px;">Sign Out</p>
+                <p style="margin-top: 20px; text-decoration: underline; margin-left: 20px;" class="signOut">Sign Out</p>
             </div>
             <div class="purchasePageRight purchaseCommon">
                 <p>Payment Method</p>
@@ -109,23 +112,23 @@
                         <input type="text" id="cardNumber" name="cardnumber" placeholder="1111-2222-3333-4444" class=" outlineNone" />
                     
                         <div class="row">
-                            <div class="col-45">
+                            <div class="col-45" style="margin-left: 20px;">
                                 <label for="expmonth" class="expMon">Exp Month:</label>
                                 <input id="expMonth" type="text" class="expInput outlineNone" id="expMonth" name="expmonth"
-                                    placeholder="September" />
+                                   style="width:200px;" placeholder="September" />
                             </div>
-                            <div class="col-45">
+                            <div class="col-45" style="margin-left: 20px;">
                                 <label for="expyear">Exp Year:</label>
-                                <input id="expYear" type="text" class="expInput outlineNone" id="expYear" name="expyear"
+                                <input id="expYear" type="text" class="expInput outlineNone" id="expYear" name="expyear" style="width:200px;"
                                     placeholder="2018" />
                             </div>
-                            <div class="col-45">
+                            <div class="col-45" style="margin-left: 20px;">
                                 <label for="cvv">CVV:</label>
-                                <input id="cvv" type="text" class="expInput outlineNone" id="cvv" name="cvv" placeholder="352" />
+                                <input id="cvv" type="text" class="expInput outlineNone" id="cvv" name="cvv" placeholder="352" style="width:200px;" />
                             </div>
                         </div>
                         <div class="row">
-                            <button onclick="savePaymentMethod()" class="saveAddress">Save Card</button>
+                            <button onclick="savePaymentMethod()" class="saveAddress" style="margin-left:23px;">Save Card</button>
                         </div>
                     </div>
                 </div>
