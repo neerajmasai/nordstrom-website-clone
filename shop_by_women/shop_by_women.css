@@ -1,0 +1,387 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* style for navbar */
+body {
+  font-family: "Voltaire", sans-serif;
+}
+#headerDiv {
+  width: 100%;
+  height: 130px;
+  /* border: 1px solid black; */
+  padding-top: 0px;
+  z-index: 3;
+}
+.header1 {
+  height: 50px;
+  background-color: black;
+  text-align: center;
+  margin-top: 0px;
+  padding-top: 0px;
+  display: flex;
+  justify-content: space-between;
+}
+.header1 > p {
+  color: white;
+  margin-top: 0px;
+  padding-top: 15px;
+  font-size: 14px;
+  margin-left: 350px;
+}
+.saleSpan {
+  font-weight: bold;
+}
+.previewButton {
+  border: none;
+  color: white;
+  background-color: black;
+  font-size: 14px;
+  text-decoration: underline;
+}
+.india {
+  float: right;
+  display: flex;
+  margin-right: 80px;
+}
+.india > img {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  margin-top: 15px;
+  margin-right: 8px;
+  /* padding-right: 10px; */
+}
+.india > p {
+  color: white;
+  font-size: 14px;
+  padding-top: 3px;
+  margin-top: 15px;
+}
+.header2 {
+  height: 80px;
+  /* border: 1px solid green; */
+  display: flex;
+}
+.logoDiv {
+  height: 80px;
+  width: 200px;
+  /* background-color: gray; */
+}
+.logo {
+  width: 250px;
+  height: 80px;
+  background-color: none;
+  border: none;
+  font-size: 28px;
+  font-weight: bold;
+  margin-left: 30px;
+  padding-right: 0px;
+  margin-top: 22px;
+}
+#homeRedirect:hover {
+    cursor: pointer;
+}
+.navList {
+  width: 50%;
+  height: 80px;
+  /* background-color: peachpuff; */
+  margin-left: 90px;
+}
+.listStyle {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  margin-top: 30px;
+  padding-left: 0px;
+  font-size: 14px;
+}
+/* .listStyle > li:first-child {
+  background-color: rgb(251, 228, 70);
+} */
+.listStyle > li:nth-child(10) {
+  color: red;
+}
+.navRight {
+  width: 25%;
+  height: 80px;
+  /* background-color: peachpuff; */
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: 30px;
+}
+.search {
+  display: flex;
+}
+.search > img {
+  width: 30px;
+  height: 30px;
+  margin-top: 25px;
+  color: gray;
+}
+.search > p {
+  margin-top: 30px;
+  font-size: 14px;
+  margin-left: 10px;
+}
+#signIn {
+  height: 20px;
+  width: 80px;
+  border: none;
+  margin-top: 30px;
+  font-size: 14px;
+}
+.navRight > .navShopIcon img{
+    width: 30px;
+    height: 35px;
+    margin-top: 18px;
+}
+/* dynamic nav cart css - neeraj */
+.navShopIcon{
+    display: flex;
+    position: relative;
+    justify-content: center;
+}
+.navShopIcon > p{
+    position: absolute;
+    top: 30px;
+    font-size: small;
+}
+.navShopIcon:hover{
+    cursor: pointer;
+}
+
+.shopWomenBody {
+    display: flex;
+    width: 100%;
+    height: 700px;
+    justify-content: space-between;
+    /* background-color: peachpuff; */
+}
+
+/* Fixed sidenav, full height */
+/* .sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 0;
+  top: 120px;
+  left: 0;
+  background-color: white;
+  overflow-x: hidden;
+  padding-top: 20px;
+ margin-top: 10px;
+} */
+/* html {
+    --scrollbarBG: 
+} */
+.sidenav {
+    width: 16%;
+    height: 500px;
+    /* overflow-y: scroll; */
+    scrollbar-width: thin;
+    scrollbar-color: white rgb(194, 193, 193);
+    overflow-x: hidden;
+    border: 1px solid rgba(240, 240, 240, 0.6);
+}
+.sidenav::-webkit-scrollbar {
+    width: 5px;
+}
+.sidenav::-webkit-scrollbar-thumb {
+    background-color: rgb(219, 218, 218);
+    border-radius: 2px;
+    /* border: 1px solid rgb(194, 193, 193); */
+}
+
+/* Style the sidenav links and the dropdown button */
+.sidenav a,
+input,
+.dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: rgb(57, 57, 57);
+  display: block;
+  border: none;
+  background: none;
+  width: 90%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  font-family: Brandon Text, Arial, sans-serif;
+  font-size: 12px;
+  padding: 25px;
+  margin-left: 5%;
+  border-top-color: gray;
+}
+.dropdown-btn {
+  color: rgb(57, 57, 57);
+  font-weight: 700;
+  line-height: 1.4;
+  padding: auto;
+  border-top-color: gray;
+}
+/* On mouse-over */
+/* .sidenav a:hover,
+.dropdown-btn:hover {
+  /* color: #f1f1f1; */
+/* } */
+*/
+
+/* Main content */
+.main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+  font-size: 20px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+/* Add an active class to the active dropdown button */
+.active {
+  background-color: white;
+  color: black;
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+  display: none;
+  background-color: white;
+  padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+
+#menu {
+  width: 85%;
+  /* border: 2px solid blue; */
+  /* min-height: 700px; */
+  margin: 10px;
+  margin-left: 230px;
+}
+.category {
+  display: flex;
+}
+
+.branding button {
+  /* background-color: #fbe446; */
+  /* width: 100%; */
+  border: none;
+  color: black;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 11px;
+  margin: 5px;
+  border-radius: 2px;
+  cursor: pointer;
+  width: 75px;
+  outline: none;
+}
+.bobbyBrown {
+    /* width: 100% !important; */
+    background-color: white;
+    border: 1px solid rgb(184, 180, 180);
+    /* text-align: left; */
+}
+.bobbyBrown:hover {
+    text-decoration: underline;
+}
+.productsDiv {
+    
+    width: 82%;
+    /* margin-left: 220px; */
+    /* border: 1px solid black; */
+}
+.prodDiv {
+    height: 500px;
+    width: 23%;
+    margin-top: 20px;
+    /* border: 1px solid red; */
+}
+#shopWomenProducts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    height: 800px;
+}
+.womenImgSize {
+    height: 350px;
+    width: 90%;
+    margin-left: 5%;
+    /* border: 1px solid black; */
+}
+.ratingsMainDiv {
+    display: flex;
+}
+.prodName {
+    font-size: 16px;
+    line-height: 0.6cm;
+}
+.prodName ~ p {
+    padding-top: 0px;
+    margin-bottom: 0px;
+}
+.prodPrice {
+    font-weight: bold;
+}
+.womenFlex {
+    display: flex;
+    justify-content: space-between;
+}
+.select {
+  margin: 25px 0 0;
+  margin-right: 50px;
+  font-family: Brandon Text, Arial, sans-serif;
+}
+#sorting[type="text"] {
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
+}
+#sorting {
+  border: 1px solid rgb(209, 209, 209);
+  width: 300px;
+  height: 50px;
+  padding: 5px;
+}
+.footerDiv {
+    height: 300px;
+    width: 100%;
+    /* border: 1px solid black; */
+    margin-top: 1000px;
+    background-color: rgb(246,246,246);
+}
+.footerTextDiv {
+    height: 250px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    /* border: 1px solid red; */
+}
+.footerTextDiv > div {
+    height: 250px;
+    width: 15.5%;
+    /* border: 1px solid blue; */
+}
+.footerTextDiv p {
+    font-size: 13px;
+}
+.termsOfService {
+    width: 60%;
+    height:50px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 3.5%;
+    /* border: 1px solid black; */
+}
+.termsOfService > p {
+    font-size: 13px;
+}

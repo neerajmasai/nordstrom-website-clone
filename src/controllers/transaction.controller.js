@@ -74,7 +74,7 @@ router.delete("/:id", async function(req, res) {
 //get all transactions of a user
 router.get("/user/:id", async function (req, res) {
     try {
-        const transactions = await Transaction.find({user: req.params.id}).populate("user").lean().exec();
+        const transactions = await Transaction.find({user: req.params.id}).lean().exec();
         return res.status(200).send(transactions);
     }
     catch (err) {

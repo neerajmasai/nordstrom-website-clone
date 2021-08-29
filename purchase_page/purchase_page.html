@@ -7,6 +7,7 @@
     <title>Purchases Page</title>
     <link rel="shortcut icon" type="image/jpg" href="images/fav.png" />
     <link rel="stylesheet" href="purchase_page.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js" integrity="sha512-LGXaggshOkD/at6PFNcp2V2unf9LzFq6LE+sChH7ceMTDP0g2kn6Vxwgg7wkPP7AAtX+lmPqPdxB47A0Nz0cMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
     <div id="headerDiv">
@@ -55,9 +56,9 @@
     </div>
     <div class="purchasePageBody">
         <div class="purchasePageLeft purchaseCommon">
-            <div class="accountHolder" >
-                <div></div>
-                <p class="accountName">Rabia's Account</p>
+            <div class="accountHolder">
+                <div id="account-initials"><h3 id="accountInitial"></h3></div>
+                <p class="accountName" id="accountName"></p>
                 <p>Hey, Nordy Club Member!</p>
             </div>
             <div class="menuItems purchaseDiv" id="purchaseDiv">
@@ -84,18 +85,21 @@
                 <img src="images/card.png" />
                 <p>Payment Methods</p>
             </div>
+            <p style="margin-top: 20px; text-decoration: underline; margin-left: 20px;">Sign Out</p>
         </div>
         <div class="purchasePageRight purchaseCommon">
             <p>Purchases</p>
-            <div class="partByNeeraj"></div>
-            <div class="helpfulInfo">
+            <div id="ordersContainer" class="partByNeeraj">
+                
+            </div>
+            <!-- <div class="helpfulInfo">
                 <p>Helpful Information:</p>
                 <p>Questions? <button class="buttonText">Chat with us</button> or Call 1.888.282.60.</p>
                 <p>Shipping Internationally? <button class="buttonText">Check your order status.</button></p>
                 <button class="buttonText">Shipping methods and charges</button>
                 <p class="lastInfo">How do you feel about our account page updates? <button class="buttonText">Give us
                         feedback.</button></p>
-            </div>
+            </div> -->
         </div>
     </div>
     <div class="footerDiv">
@@ -155,4 +159,5 @@
         </div>
     </div>
 </body>
+<script src="purchase_page.js"></script>
 </html>

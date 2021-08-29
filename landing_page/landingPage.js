@@ -137,6 +137,14 @@ function shopByMen() {
     window.location.href = "../shop_by_category/shop_Category.html";
 }
 
+// Redirection to shop by women page
+
+let shopWomen = document.querySelector("#shopWomen");
+shopWomen.addEventListener("click", shopByWomen);
+
+function shopByWomen() {
+    window.location.href = "../shop_by_women/shop_by_women.html";
+}
 
 let annSale = document.querySelector("#annSale");
 annSale.addEventListener("click", dropDown);
@@ -379,6 +387,11 @@ redirectMenPage10.addEventListener("click", function () {
 let redirectMenPage11 = document.getElementById("redirectMenPage11");
 redirectMenPage11.addEventListener("click", function () {
     window.location.href = "../shop_by_category/shop_Category.html";
+})
+
+let navWomen = document.getElementById("navWomen");
+navWomen.addEventListener("click", function () {
+    window.location.href = "../shop_by_women/shop_by_women.html";
 })
 
 // loading the slider products dynamically from database
