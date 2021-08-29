@@ -41,16 +41,16 @@ window.onload = function logged() {
     }
 }
 function myaccount() {
-    // var isLoggedIn = JSON.parse(localStorage.getItem("isLoggedIn"));
+    /* go to my account page */
 
-    // alert(isLoggedIn);
-    // if (isLoggedIn) {
-    //     window.location.href = "../personalInfo_page/personalInfo.html";
-    // }
-    // else{
-    //      window.location.href = "../login_page/login.html";
-    // }
-    alert("working")
+    var isLoggedIn = JSON.parse(localStorage.getItem("isLoggedIn"));
+
+    if (isLoggedIn) {
+        window.location.href = "../personalInfo_page/personalInfo_page.html";
+    }
+    else{
+         window.location.href = "../login page/login.html";
+    }
 }
 function signIn(){
     /* redirect to sign in page */

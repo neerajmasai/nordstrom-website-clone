@@ -6,6 +6,7 @@ isLoggedIn = JSON.parse(localStorage.getItem("isLoggedIn"));
 
 window.onload = function logged() {
   var isLoggedIn = JSON.parse(localStorage.getItem("isLoggedIn"));
+  
   if(isLoggedIn){
       //show name and logout option
       var sign = document.getElementById("signInOption");
@@ -25,6 +26,10 @@ window.onload = function logged() {
                   window.location.reload();
               });
               logoutDiv.append(logout);
+              var mail = document.getElementById("curmail");
+              mail.innerHTML = currentEmail;
+              var username = document.getElementById("username");
+              username.innerHTML = details[0].firstName + " " + details[0].lastName;
           })
   }
   else{
@@ -33,6 +38,22 @@ window.onload = function logged() {
       sign.innerHTML = "Sign In";
       sign.value = "Sign In";
   }
+}
+function myaccount() {
+  /* go to my account page */
+
+  var isLoggedIn = JSON.parse(localStorage.getItem("isLoggedIn"));
+
+  if (isLoggedIn) {
+      window.location.href = "../personalInfo_page/personalInfo_page.html";
+  }
+  else{
+       window.location.href = "../login page/login.html";
+  }
+}
+function signIn(){
+  /* redirect to sign in page */
+  window.location.href = "../login page/login.html";
 }
 
 function authenticateUser(){
