@@ -1,4 +1,4 @@
-// localStorage.setItem("isLoggedIn", JSON.stringify(false))
+localStorage.setItem("isLoggedIn", JSON.stringify(false))
 
 // CHECKING WHETHER USER ALREADY EXIST OR NOT
 function writeToStorage() {
@@ -96,6 +96,14 @@ window.onload = function logged() {
             .then((details) => {
                 console.log('details:', details);
                 sign.innerHTML = `Hi, ${details[0].firstName}`;
+                // var accountDiv = document.getElementById("signIn")
+                // var account = document.createElement("option");
+                // account.value = "My Account";
+                // account.innerHTML = "My Account";
+                // account.addEventListener("click", () => {
+                //     window.location.href = "../personalInfo_page/personalInfo.html";
+                // });
+               // accountDiv.append(account);
                 var logoutDiv = document.getElementById("signIn")
                 var logout = document.createElement("option");
                 logout.value = "Sign Out";
