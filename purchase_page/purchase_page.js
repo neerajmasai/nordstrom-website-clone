@@ -110,8 +110,9 @@ function appendPurchaseOrders(orders){
 
     if(orders.length == 0){
         //no orders yet
-        const h1 = document.createElement("h1");
+        const h1 = document.createElement("h3");
         h1.innerHTML = "It looks like you have not ordered yet, order now, exciting offers await you!";
+        h1.style.marginLeft = "8px";
         parent.append(h1);
     }
 

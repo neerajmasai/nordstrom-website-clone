@@ -161,7 +161,11 @@ function savePaymentMethod(){
           })
           .then(response => response.json())
           .then(data => {
-            console.log(data);
+              console.log(data);
+              showModal();
+              setTimeout(() => {
+                  hideModal();
+              }, 2000);
           })
           .catch((error) => {
               console.error('Error:', error);
@@ -196,6 +200,17 @@ function savePaymentMethod(){
     });
       
   }
+
+function showModal(){
+    /* shows Y/N modal and returns response */
+    const modal = document.getElementById("yesNoModal");
+    modal.style.visibility = "visible";    
+}
+function hideModal(){
+    /* hide div after user clicks on close */
+    const modal = document.getElementById("yesNoModal");
+    modal.style.visibility = "hidden";
+}
 
 loadAccountInfo();
 loadPaymentMethod();

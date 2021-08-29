@@ -124,12 +124,12 @@ function saveShippingDetails(){
     console.log(currentEmail);
     fetch(`http://localhost:2345/users/query/${currentEmail}`)
     .then(response => response.json())
-    .then((userData) => {
+        .then((userData) => {
         const userId = userData[0]["_id"];
 
         //save shipping details
         const address = document.getElementById("address1").value;
-        const addressOpt = document.getElementById("address1").value;
+        const addressOpt = document.getElementById("address2").value;
         const city = document.getElementById("city").value;
         const state = document.getElementById("state").value;
         const country = document.getElementById("country").value;
@@ -156,6 +156,10 @@ function saveShippingDetails(){
         .then(response => response.json())
         .then(data => {
             console.log(data);
+            showModal();
+              setTimeout(() => {
+                  hideModal();
+              }, 2000);
         })
         .catch((error) => {
             console.error('Error:', error);
@@ -188,6 +192,17 @@ function loadAccountInfo(){
       console.error('Error:', error);
   });
     
+}
+
+function showModal(){
+    /* shows Y/N modal and returns response */
+    const modal = document.getElementById("yesNoModal");
+    modal.style.visibility = "visible";    
+}
+function hideModal(){
+    /* hide div after user clicks on close */
+    const modal = document.getElementById("yesNoModal");
+    modal.style.visibility = "hidden";
 }
 
 loadAccountInfo();

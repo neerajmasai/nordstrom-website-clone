@@ -140,7 +140,7 @@ function loadNavCount(){
 
     //save shipping details
     const address = document.getElementById("address1").value;
-    const addressOpt = document.getElementById("address1").value;
+    const addressOpt = document.getElementById("address2").value;
     const city = document.getElementById("city").value;
     const state = document.getElementById("state").value;
     const country = document.getElementById("country").value;
