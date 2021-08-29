@@ -370,3 +370,14 @@ body {
 .termsOfService > p {
     font-size: 13px;
 }
+
+/* account */
+
+#account-initials{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: silver;
+    font-size: x-large;
+}
+/* end */

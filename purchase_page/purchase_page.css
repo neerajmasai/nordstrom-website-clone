@@ -308,3 +308,14 @@ body {
     margin-top: 10px;
 }
 /* end */
+
+/* account */
+
+#account-initials{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: silver;
+    font-size: x-large;
+}
+/* end */
