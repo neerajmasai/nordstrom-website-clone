@@ -16,7 +16,7 @@ const shippingDetailSchema = new Schema({
 //pa details child schema
 const paymentMethodSchema = new Schema({
     nameOnCard: String,
-    cardNumber: Number,
+    cardNumber: String,
     expMonth: String,
     expYear: Number,
     cvv: Number

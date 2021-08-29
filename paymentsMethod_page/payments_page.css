@@ -205,7 +205,6 @@ body {
 }
 .partByNeeraj {
     width: 95%;
-    height: 300px;
     margin-left: 2.5%;
     /* background-color: peachpuff; */
 }
@@ -386,3 +385,20 @@ span.price {
 .termsOfService > p {
     font-size: 13px;
 }
+
+/* save payment button */
+.saveAddress {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    width: 25%;
+    height: 40px;
+    margin-left: 3.5%;
+    /* border-radius: 3px; */
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* end */
