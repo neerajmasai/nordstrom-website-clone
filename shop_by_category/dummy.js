@@ -75,8 +75,10 @@ function loadNavCount(){
   if(cart == null){
     navCart.innerHTML = 0;
   }
+  else {
+    navCart.innerHTML = cart.count;
+  }
   
-  navCart.innerHTML = cart.count;
 
 }
 
