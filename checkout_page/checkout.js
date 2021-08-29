@@ -121,6 +121,7 @@ function loadNavCount(){
     const address = document.getElementById("address1").value;
     const addressOpt = document.getElementById("address1").value;
     const city = document.getElementById("city").value;
+    const state = document.getElementById("state").value;
     const country = document.getElementById("country").value;
     const pin = document.getElementById("pin").value;
 
@@ -129,6 +130,7 @@ function loadNavCount(){
       address: address,
       addressOpt: addressOpt,
       city: city,
+      state: state,
       country: country,
       pin: pin
     }

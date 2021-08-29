@@ -84,6 +84,40 @@
                 <p>Shipping Address</p>
                 <div class="partByNeeraj">
                     <p> Checkout faster by adding one or more shipping addresses to your account</p>
+                    <div class="addressDiv">
+                        <input id="address1" type="text" placeholder="Address Line 1" class="addressLines firstAddress outlineNone" style="width: 603px;"/>
+                   
+                        <input id="address2" type="text" placeholder="Address Line 2" class="addressLines outlineNone" style="width: 603px;"/>
+                        <br>
+                        <input id="city" type="text" placeholder="City" class="inputCity outlineNone"/>
+                        <input id="state" type="text" placeholder="State" class="inputState outlineNone"/>
+                        <br>
+                        <input id="pin" type="text" placeholder="Postal Code"  class="inputCity outlineNone"/>
+                        <select id="country" name="country", id="selectCountry" placeholder="Country">
+                         <option>Country</option>
+                         <option value="Algeria">Algeria</option>
+                         <option value="Australia">Australia</option>
+                         <option value="Bangladesh">Bangladesh</option>
+                         <option value="Brazil">Brazil</option>
+                         <option value="Cambodia">Cambodia</option>
+                         <option value="Canada">Canada</option>
+                         <option value="Denmark">Denmark</option>
+                         <option value="Egypt">Egypt</option>
+                         <option value="France">France</option>
+                         <option value="Georgia">Georgia</option>
+                         <option value="Hongkong">Hongkong</option>
+                         <option value="India">India</option>
+                         <option value="USA">USA</option>
+                         <option value="Malaysia">Malaysia</option>
+                         <option value="Nigeria">Nigeria</option>
+                         <option value="Oman">Oman</option>
+                         <option value="Singapore">Singapore</option>
+                         <option value="Zambia">Zambia</option>
+                        </select>
+                        <br>
+                       <input id="isSave" style="margin-left: 15%; margin-top: 20px;" type="checkbox" checked="checked" name="sameadr"> Save this address as primary address
+                       <button onclick="saveShippingDetails()" class="saveAddress">Save Address</button>
+                     </div>
                 </div>
                 
             </div>
