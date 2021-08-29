@@ -27,6 +27,10 @@ window.onload = function logged() {
                     window.location.reload();
                 });
                 logoutDiv.append(logout);
+                var mail = document.getElementById("curmail");
+                mail.innerHTML = currentEmail;
+                var username = document.getElementById("username");
+                username.innerHTML = details[0].firstName + " " + details[0].lastName;
             })
     }
     else{
@@ -35,6 +39,18 @@ window.onload = function logged() {
         sign.innerHTML = "Sign In";
         sign.value = "Sign In";
     }
+}
+function myaccount() {
+    // var isLoggedIn = JSON.parse(localStorage.getItem("isLoggedIn"));
+
+    // alert(isLoggedIn);
+    // if (isLoggedIn) {
+    //     window.location.href = "../personalInfo_page/personalInfo.html";
+    // }
+    // else{
+    //      window.location.href = "../login_page/login.html";
+    // }
+    alert("working")
 }
 function signIn(){
     /* redirect to sign in page */
