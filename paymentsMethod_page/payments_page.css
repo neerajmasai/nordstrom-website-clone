@@ -178,30 +178,34 @@ body {
     /* border: 1px solid red; */
 }
 .accountHolder {
-    height: 120px;
+    height: 140px;
     width: 100%;
     text-align: center;
     /* border: 1px solid blue; */
 }
 .menuItems {
-    height: 60px;
+    height: 70px;
     width: 100%;
     display: flex;
     /* border: 1px solid green; */
 }
 .menuItems:hover {
     background-color: rgba(115,115,115, 0.6);
+    cursor: pointer;
 }
 .menuItems > img {
     height: 35px;
-    padding-top: 10px;
+    padding-top: 20px;
     margin-left: 20px;
     color: gray;
 }
 .menuItems > p {
     font-size: 17px;
-    padding-top: 2px;
+    padding-top: 10px;
     padding-left: 5px;
+}
+.signOut:hover {
+    cursor: pointer;
 }
 .partByNeeraj {
     width: 95%;
@@ -232,11 +236,18 @@ body {
     margin-top: 50px;
 }
 .accountHolder > div{
-    height: 60px;
-    width: 60px;
-    margin-left: 100px;
+    height: 80px;
+    width: 80px;
+    margin-left: 80px;
     border-radius: 50%;
     background-color: rgb(57,57,57); 
+}
+
+#accountInitial {
+    font-family: 'Tangerine', cursive;
+    margin-right: 10px;
+    font-style: italic;
+    color: rgb(224, 223, 223);
 }
 
 /* payment method */
@@ -267,9 +278,9 @@ body {
 #col-50 {
   padding: 0 16px;
   /* border: 2px solid forestgreen; */
-  width: 72%;
-  height: 400px;
-  margin-left: 13.5%;
+  width: 80%;
+  height: 500px;
+  margin-left: 8%;
   margin-top: 50px;
   border: 1px solid rgb(246,246,246);
   background-color: white;

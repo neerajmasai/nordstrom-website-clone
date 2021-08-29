@@ -7,13 +7,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Purchases Page</title>
         <link rel="shortcut icon" type="image/jpg" href="images/fav.png" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Allison&family=Great+Vibes&family=Ma+Shan+Zheng&family=Playball&family=Tangerine&display=swap"
+            rel="stylesheet">
         <link rel="stylesheet" href="shipping_page.css">
     </head>
 
     <body>
         <div id="headerDiv">
             <div class="header1">
-                <p><span class="saleSpan">Pick up today. </span>Curbside Pickup - it's safe, easy and free.
+                <p style="margin-left: 460px;"><span class="saleSpan">Pick up today. </span>Curbside Pickup - it's safe, easy and free.
                     <button class="previewButton">Learn More</button>
                 </p>
                 <div class="india">
@@ -59,7 +62,7 @@
         <div class="purchasePageBody">
             <div class="purchasePageLeft purchaseCommon">
                 <div class="accountHolder">
-                    <div id="account-initials"><h3 id="accountInitial"></h3></div>
+                    <div id="account-initials"><h2 id="accountInitial"></h2></div>
                     <p class="accountName" id="accountName"></p>
                     <p>Hey, Nordy Club Member!</p>
                 </div>
@@ -79,22 +82,22 @@
                     <img src="images/card.png" />
                     <p>Payment Methods</p>
                 </div>
-                <p style="margin-top: 20px; text-decoration: underline; margin-left: 20px;">Sign Out</p>
+                <p style="margin-top: 20px; text-decoration: underline; margin-left: 20px;" class="signOut">Sign Out</p>
             </div>
             <div class="purchasePageRight purchaseCommon">
-                <p>Shipping Address</p>
+                <p style="margin-left: 125px; margin-top: 40px;">Shipping Address</p>
                 <div class="partByNeeraj">
-                    <p> Checkout faster by adding one or more shipping addresses to your account</p>
+                    <p style="margin-left: 100px; margin-top:30px;"> Checkout faster by adding one or more shipping addresses to your account</p>
                     <div class="addressDiv">
-                        <input id="address1" type="text" placeholder="Address Line 1" class="addressLines firstAddress outlineNone" style="width: 603px;"/>
+                        <input id="address1" type="text" placeholder="Address Line 1" class="addressLines firstAddress outlineNone" style="width: 535px; margin-left: 20px;"/>
                    
-                        <input id="address2" type="text" placeholder="Address Line 2" class="addressLines outlineNone" style="width: 603px;"/>
+                        <input id="address2" type="text" placeholder="Address Line 2" class="addressLines outlineNone" style="width: 535px; margin-left: 20px;"/>
                         <br>
-                        <input id="city" type="text" placeholder="City" class="inputCity outlineNone"/>
-                        <input id="state" type="text" placeholder="State" class="inputState outlineNone"/>
+                        <input id="city" type="text" placeholder="City" class="inputCity outlineNone" style="margin-left: 20px;"/>
+                        <input id="state" type="text" placeholder="State" class="inputState outlineNone" style="width: 262px;"/>
                         <br>
-                        <input id="pin" type="text" placeholder="Postal Code"  class="inputCity outlineNone"/>
-                        <select id="country" name="country", id="selectCountry" placeholder="Country">
+                        <input id="pin" type="text" placeholder="Postal Code"  class="inputCity outlineNone" style="margin-left: 20px;"/>
+                        <select id="country" name="country", id="selectCountry" placeholder="Country" class="outlineNone">
                          <option>Country</option>
                          <option value="Algeria">Algeria</option>
                          <option value="Australia">Australia</option>
@@ -116,7 +119,7 @@
                          <option value="Zambia">Zambia</option>
                         </select>
                         <br>
-                       <input id="isSave" style="margin-left: 15%; margin-top: 20px;" type="checkbox" checked="checked" name="sameadr"> Save this address as primary address
+                       <input id="isSave" style="margin-left: 3%; margin-top: 20px;" type="checkbox" checked="checked" name="sameadr"> Save this address as primary address
                        <button onclick="saveShippingDetails()" class="saveAddress">Save Address</button>
                      </div>
                 </div>

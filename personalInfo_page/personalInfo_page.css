@@ -179,30 +179,34 @@ body {
     /* border: 1px solid red; */
 }
 .accountHolder {
-    height: 120px;
+    height: 150px;
     width: 100%;
     text-align: center;
     /* border: 1px solid blue; */
 }
 .menuItems {
-    height: 60px;
+    height: 70px;
     width: 100%;
     display: flex;
     /* border: 1px solid green; */
 }
 .menuItems:hover {
     background-color: rgba(115,115,115, 0.6);
+    cursor: pointer;
 }
 .menuItems > img {
     height: 35px;
-    padding-top: 10px;
+    padding-top: 20px;
     margin-left: 20px;
     color: gray;
 }
 .menuItems > p {
     font-size: 17px;
-    padding-top: 2px;
+    padding-top: 10px;
     padding-left: 5px;
+}
+.signOut:hover {
+    cursor: pointer;
 }
 .partByNeeraj {
     width: 95%;
@@ -211,6 +215,14 @@ body {
     border-top: 1px solid rgb(168, 168, 168);
     /* background-color: peachpuff; */
 }
+
+#accountInitial {
+    font-family: 'Tangerine', cursive;
+    margin-right: 10px;
+    font-style: italic;
+    color: rgb(224, 223, 223);
+}
+
 .signInInfo {
     margin-top: 0px;
     padding-top: 0px;
@@ -255,9 +267,9 @@ body {
     margin-top: 50px;
 }
 .accountHolder > div{
-    height: 60px;
-    width: 60px;
-    margin-left: 100px;
+    height: 80px;
+    width: 80px;
+    margin-left: 80px;
     border-radius: 50%;
     background-color: rgb(43, 40, 40); 
 }
