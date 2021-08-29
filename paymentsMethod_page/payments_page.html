@@ -7,6 +7,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Payments Page</title>
         <link rel="shortcut icon" type="image/jpg" href="images/fav.png" />
+        <link rel="stylesheet" type="text/css"
+            href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
         <link rel="stylesheet" href="payments_page.css">
     </head>
 
@@ -90,8 +92,40 @@
             </div>
             <div class="purchasePageRight purchaseCommon">
                 <p>Payment Methods</p>
-                <div class="partByNeeraj">
-                    <p style="font-size: 13px;">Checkout faster by adding one or more cards to your account.</p>
+                <div class="partByNeeraj" id="paymentsMainDiv">
+                    <div id="col-50">
+                        <h3>Payment</h3>
+                        <label for="fname">Accepted Cards</label>
+                        <div class="icon-container">
+                            <i class="fa fa-cc-visa" style="color:navy;"></i>
+                            <i class="fa fa-cc-amex" style="color:rgb(46, 46, 230);"></i>
+                            <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                            <i class="fa fa-cc-discover" style="color:orange;"></i>
+                        </div>
+                        <label for="cname">Name on Card</label>
+                        <input id="nameOnCard" type="text" id="nameOnCard" name="cardname" placeholder="John More Doe"
+                            class=" outlineNone" />
+                        <label id="cardNumber" for="ccnum">Credit card number</label>
+                        <input type="text" id="cardNumber" name="cardnumber" placeholder="1111-2222-3333-4444" class=" outlineNone" />
+                    
+                        <div class="row">
+                            <div class="col-50">
+                                <label for="expmonth" class="expMon">Exp Month:</label>
+                                <input id="expMonth" type="text" class="expInput outlineNone" id="expMonth" name="expmonth"
+                                    placeholder="September" />
+                            </div>
+                            <div class="col-50">
+                                <label for="expyear">Exp Year:</label>
+                                <input id="expYear" type="text" class="expInput outlineNone" id="expYear" name="expyear"
+                                    placeholder="2018" />
+                            </div>
+                            <div class="col-50">
+                                <label for="cvv">CVV:</label>
+                                <input id="cvv" type="text" class="expInput outlineNone" id="cvv" name="cvv" placeholder="352" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <p style="font-size: 13px;">Checkout faster by adding one or more cards to your account.</p> -->
                 </div>
                 
             </div>

@@ -337,7 +337,6 @@ input,
 .select {
   margin: 25px 0 0;
   margin-right: 50px;
-
   font-family: Brandon Text, Arial, sans-serif;
 }
 #sorting[type="text"] {
@@ -348,7 +347,7 @@ input,
   font-size: 17px;
 }
 #sorting {
-  border: 1px solid gray;
+  border: 1px solid rgb(209, 209, 209);
   width: 300px;
   height: 50px;
   padding: 5px;
