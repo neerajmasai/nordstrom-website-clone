@@ -54,15 +54,15 @@ Nordstrom is an international Online Shopping Store. Founded in 1901 by John W. 
 # Quick Tour to our Project
 1. This is the langing page of our website.
 
-![This is the landing page of our page](images/landingPage2.PNG)
+![This is the landing page of our page](images/landingPage.PNG)
 
 2. This the shop by category page where the user can find all the products related to any particular category like men's category or women's category.
 
-![](images/shopByCategory2.PNG)
+![](images/shopByCategory.PNG)
 
 3. In the Product page, the user can see all the details of any particular product he/she selects and there the user can select the size, color or any of the specifications depending on the requirement and add the product in to the shopping bag.
 
-![](images/productsPage2.PNG)
+![](images/productsPage.PNG)
 
 4. After adding products to the bag, the user can go to the checkout page , where he can see all the prodcuts that are added to the bag and the order summary that include the total cost of the products.
 
