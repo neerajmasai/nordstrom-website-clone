@@ -1,3 +1,4 @@
+/* authetication */
 /* dynamic cart data */
 let metaCart = JSON.parse(localStorage.getItem("metaCart"));
 let cart = JSON.parse(localStorage.getItem("cart"));
@@ -5,6 +6,13 @@ let cart = JSON.parse(localStorage.getItem("cart"));
 let continueShopping = document.getElementById("continueShopping");
 continueShopping.addEventListener("click", goToHomePage);
 
+function autheticateUser(){
+    const currentEmail = JSON.parse(localStorage.getItem("currentEmail"));
+    if(metaCart === null || cart === null || currentEmail == ""){
+        window.location.href = "../login page/login.html";
+    }
+}
+autheticateUser();
 function goToHomePage() {
     window.location.href = "../landing_page/landingPage.html";
 }
