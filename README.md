@@ -16,6 +16,8 @@ Nordstrom is an international Online Shopping Store. Founded in 1901 by John W. 
 * HTML5
 * CSS3
 * JavaScript
+* NodeJS
+* Express
 * MongoDB(Database)
 
 ## Pre-requisites
