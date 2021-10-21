@@ -2,7 +2,7 @@
 As a part of our build week we were given a problem statement to clone the website Nordstrom. We have tried to make a pixel-perfect clone of the original website in 6 days.
 
 ## Team Size
-4
+3
 
 ## Team Members
 1. Neeraj Malwal
